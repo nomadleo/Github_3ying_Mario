@@ -9,8 +9,46 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
-    <meta name="description" content="三穎生技有限公司 (3Ying Biologic Technology Inc.) - 專注於高精度液體處理 (Liquid Handling) 與自動化儀器核心組件代理，代理 TECAN Infinite 200 Pro、TECAN Washer、Cavro XC / XLP 6000、Dingke 等國際知名品牌 OEM 柱塞泵、注射管耗材。">
+    <!-- SEO 基本標籤 -->
     <title>三穎生技有限公司 | 3Ying Biologic Technology Inc. - Liquid Handling Solutions</title>
+    <meta name="description" content="三穎生技 (3Ying) 專注於高精度液體處理 (Liquid Handling) 與生技自動化核心組件，代理瑞士 TECAN Infinite 200 Pro、Washer 洗板機、Cavro 柱塞泵及原廠耗材。">
+    <meta name="keywords" content="三穎生技, 3Ying, TECAN, Infinite 200 Pro, TECAN Washer, Cavro XLP 6000, 柱塞泵, 微量分注, 生技自動化">
+    <link rel="canonical" href="https://www.3ying-tech.com/">
+
+    <!-- Open Graph (LINE / Facebook / LinkedIn 社群分享卡片) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.3ying-tech.com/">
+    <meta property="og:title" content="三穎生技有限公司 | 3Ying Biologic Technology Inc.">
+    <meta property="og:description" content="瑞士 TECAN 授權代理：Infinite 200 Pro 微盤分析儀、Washer 洗板機、Cavro 柱塞泵與高階耗材解決方案。">
+    <meta property="og:image" content="https://www.3ying-tech.com/logo.jpg">
+    <meta property="og:site_name" content="三穎生技有限公司">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Google 企業結構化資料 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "三穎生技有限公司",
+      "alternateName": "3Ying Biologic Technology Inc.",
+      "url": "https://www.3ying-tech.com",
+      "logo": "https://www.3ying-tech.com/logo.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+886-931-036-245",
+        "contactType": "sales",
+        "areaServed": ["TW", "SG", "VN", "TH", "MY", "PH"],
+        "availableLanguage": ["zh-TW", "en"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "金湖路363巷25弄10號",
+        "addressLocality": "台北市內湖區",
+        "postalCode": "11490",
+        "addressCountry": "TW"
+      }
+    }
+    </script>
     
     <!-- 嚴格 HTTPS CDN 資源 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2366,7 +2404,10 @@
                     </div>
 
                     <form id="contactDirectForm" class="styled-form" onsubmit="handleDirectSubmit(event)">
-                        <div class="form-row">
+                    <!-- Task 3: 蜜罐防垃圾信（隱藏欄位，一般使用者看不到，機器人填寫會被攔截） -->
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-row">
+                        
                             <div class="form-group">
                                 <label for="formLastName">姓名 (姓氏) *</label>
                                 <input type="text" id="formLastName" name="lastName" placeholder="最後 / Last Name" required>
@@ -2544,6 +2585,7 @@
                 _subject: `[三穎官網線上詢價] ${category} - ${lastName}${firstName}`,
                 _template: "table",
                 _captcha: "false",
+                _honey: "", // 空值傳遞，確保真人填寫順利寄出
                 姓名: `${lastName} ${firstName}`,
                 電子郵件: email,
                 聯絡電話: phone || "未提供",
