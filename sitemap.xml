@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 支援全屏、動態島與瀏海屏安全區域 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#EA3A00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <meta name="description" content="三穎生技有限公司 (3Ying Biologic Technology Inc.) - 專注於高精度液體處理 (Liquid Handling) 與自動化儀器核心組件代理，代理 TECAN Infinite 200 Pro、TECAN Washer、Cavro XC / XLP 6000、Dingke 等國際知名品牌 OEM 柱塞泵、注射管耗材。">
+    <title>三穎生技有限公司 | 3Ying Biologic Technology Inc. - Liquid Handling Solutions</title>
+    
+    <!-- 嚴格 HTTPS CDN 資源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
+        :root {
+            /* 基礎白底與文字 */
+            --color-white: #FFFFFF;
+            --color-text-title: #0F172A;
+            --color-text-main: #334155;
+            --color-text-muted: #64748B;
+            
+            /* 生技活潑多重高對比色票 */
+            --color-coral-red: #EA3A00;       /* 活力珊瑚紅 */
+            --color-warm-orange: #FF6B35;     /* 陽光暖橙 */
+            --color-amber-gold: #F59E0B;      /* 耀眼金黃 */
+            --color-emerald-green: #059669;   /* 活潑翡翠綠 */
+            --color-mint-teal: #0D9488;       /* 清新薄荷青 */
+            --color-cyan-blue: #0284C7;       /* 科技湛藍 */
+            --color-indigo-purple: #6366F1;   /* 數位紫羅蘭 */
+            --color-rose-pink: #E11D48;       /* 玫瑰洋紅 */
+            --color-line-green: #06C755;      /* LINE 品牌綠 */
+            
+            /* 主題色系 1: 科技藍調 (Cyan / Blue) */
+            --theme-cyan-dark: #0369A1;
+            --theme-cyan-main: #0284C7;
+            --theme-cyan-bg: #F0F9FF;
+            --theme-cyan-border: #BAE6FD;
+            
+            /* 主題色系 2: 翡翠綠調 (Emerald / Green) */
+            --theme-green-dark: #065F46;
+            --theme-green-main: #059669;
+            --theme-green-bg: #ECFDF5;
+            --theme-green-border: #A7F3D0;
+            
+            /* 主題色系 3: 數位紫調 (Purple / Indigo) */
+            --theme-purple-dark: #4338CA;
+            --theme-purple-main: #6366F1;
+            --theme-purple-bg: #EEF2FF;
+            --theme-purple-border: #C7D2FE;
+            
+            /* 主題色系 4: 暖陽橘調 (Orange / Amber) */
+            --theme-orange-dark: #C2410C;
+            --theme-orange-main: #EA3A00;
+            --theme-orange-bg: #FFF7ED;
+            --theme-orange-border: #FED7AA;
+            
+            --gradient-primary: linear-gradient(135deg, #EA3A00 0%, #FF6B35 50%, #F59E0B 100%);
+            
+            --font-primary: 'Montserrat', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow-glow-orange: 0 10px 25px rgba(234, 58, 0, 0.25);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { 
+            scroll-behavior: smooth; 
+            font-size: 16px; 
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body { 
+            font-family: var(--font-primary); 
+            color: var(--color-text-main); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+            position: relative;
+            background-color: #FFFFFF;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 實驗室科研背景 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(180deg, 
+                    rgba(255, 255, 255, 0.94) 0%, 
+                    rgba(255, 255, 255, 0.91) 40%, 
+                    rgba(255, 255, 255, 0.93) 70%, 
+                    rgba(255, 255, 255, 0.96) 100%),
+                url('https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: -1;
+            filter: grayscale(20%);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container { width: 92%; max-width: 1200px; margin: 0 auto; padding: 0 10px; }
+        .section-padding { padding: 95px 0; }
+        .text-center { text-align: center; }
+
+        /* 3D 水晶圓球 Logo (62px + 呼吸光) */
+        .logo-sphere-wrapper {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #FFFFFF;
+            -webkit-animation: sphereFloat 4s ease-in-out infinite alternate, sphereBreathingGlow 3s ease-in-out infinite;
+            animation: sphereFloat 4s ease-in-out infinite alternate, sphereBreathingGlow 3s ease-in-out infinite;
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+            border: 2.5px solid rgba(255, 255, 255, 0.95);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .logo-sphere-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 50%;
+            display: block;
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+
+        .logo-sphere-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.15) 35%, transparent 65%),
+                        radial-gradient(circle at 75% 82%, rgba(234, 58, 0, 0.25) 0%, transparent 60%);
+            box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.22);
+            pointer-events: none;
+        }
+
+        .logo-sphere-wrapper:hover {
+            -webkit-transform: scale(1.12) translateY(-2px);
+            transform: scale(1.12) translateY(-2px);
+            box-shadow: 
+                0 0 28px rgba(234, 58, 0, 0.6),
+                0 0 12px rgba(245, 158, 11, 0.4),
+                0 6px 12px rgba(0, 0, 0, 0.2);
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        @-webkit-keyframes sphereBreathingGlow {
+            0%, 100% { box-shadow: 0 0 8px rgba(234, 58, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.15); }
+            50% { box-shadow: 0 0 22px rgba(234, 58, 0, 0.55), 0 0 35px rgba(245, 158, 11, 0.35), 0 8px 18px rgba(234, 58, 0, 0.35); }
+        }
+        @keyframes sphereBreathingGlow {
+            0%, 100% { box-shadow: 0 0 8px rgba(234, 58, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.15); }
+            50% { box-shadow: 0 0 22px rgba(234, 58, 0, 0.55), 0 0 35px rgba(245, 158, 11, 0.35), 0 8px 18px rgba(234, 58, 0, 0.35); }
+        }
+
+        .sphere-mini {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 10px rgba(234, 58, 0, 0.3);
+            display: -webkit-inline-flex;
+            display: inline-flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            background: #fff;
+            -webkit-animation: miniBreathingGlow 3s ease-in-out infinite;
+            animation: miniBreathingGlow 3s ease-in-out infinite;
+        }
+        .sphere-mini img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 50%;
+        }
+        .sphere-mini::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.75) 0%, transparent 60%);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
+
+        @keyframes miniBreathingGlow {
+            0%, 100% { box-shadow: 0 0 6px rgba(234, 58, 0, 0.25); }
+            50% { box-shadow: 0 0 14px rgba(234, 58, 0, 0.55), 0 0 18px rgba(245, 158, 11, 0.3); }
+        }
+
+        .footer-logo .logo-sphere-wrapper {
+            width: 52px;
+            height: 52px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        @-webkit-keyframes sphereFloat {
+            0% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            100% { -webkit-transform: translateY(-4px); transform: translateY(-4px); }
+        }
+        @keyframes sphereFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-4px); }
+        }
+
+        /* 導覽列 */
+        .site-header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            background-color: rgba(255, 255, 255, 0.96); 
+            -webkit-backdrop-filter: blur(12px); 
+            backdrop-filter: blur(12px); 
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            padding-top: env(safe-area-inset-top);
+        }
+        
+        .header-topbar { 
+            background: var(--gradient-primary); 
+            color: #FFF; 
+            font-size: 0.8rem; 
+            padding: 6px 0; 
+        }
+        .topbar-content { display: flex; justify-content: space-between; align-items: center; }
+        .topbar-info { display: flex; gap: 18px; flex-wrap: wrap; }
+        .topbar-info span i { margin-right: 5px; color: #FEF08A; }
+        .topbar-links a { color: #FFF; font-weight: 700; text-decoration: underline; }
+        .badge-partner { background: rgba(0, 0, 0, 0.2); color: #FFF; padding: 2px 8px; border-radius: 4px; font-weight: 700; border: 1px solid rgba(255,255,255,0.3); }
+
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 10px; }
+        .logo-brand { display: flex; align-items: center; gap: 14px; }
+
+        .company-name-zh { font-size: 1.4rem; font-weight: 800; color: var(--color-text-title); display: block; line-height: 1.15; letter-spacing: -0.3px; }
+        .company-name-en { font-size: 0.74rem; font-weight: 700; color: var(--color-coral-red); letter-spacing: 1.2px; display: block; text-transform: uppercase; }
+        
+        .nav-menu { display: flex; align-items: center; gap: 24px; }
+        .nav-link { font-size: 0.95rem; font-weight: 600; color: var(--color-text-title); position: relative; padding: 6px 0; white-space: nowrap; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--gradient-primary); transition: var(--transition-smooth); border-radius: 2px; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-text-title);
+            cursor: pointer;
+            padding: 8px;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        /* 跑馬燈 */
+        .marquee-container {
+            width: 100%;
+            background: rgba(255, 248, 245, 0.92);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            color: var(--color-text-main);
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #FFE4D6;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            align-items: center;
+            gap: 40px;
+            -webkit-animation: marquee-scroll 28s linear infinite;
+            animation: marquee-scroll 28s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--color-text-main);
+        }
+
+        .marquee-highlight { 
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
+        }
+
+        @-webkit-keyframes marquee-scroll {
+            0% { -webkit-transform: translateX(0); transform: translateX(0); }
+            100% { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+        }
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 按鈕樣式 */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 30px; font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-sm); cursor: pointer; border: none; transition: var(--transition-smooth); text-align: center; min-height: 44px; }
+        .btn-brand { background: var(--gradient-primary); color: #FFF; box-shadow: var(--shadow-glow-orange); }
+        .btn-brand:hover { -webkit-transform: translateY(-2px); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(234, 58, 0, 0.35); }
+        .btn-primary-sm { background: var(--gradient-primary); color: #FFF; padding: 9px 20px; font-size: 0.88rem; border-radius: var(--radius-sm); min-height: 40px; }
+        .btn-outline { background: #FFFFFF; color: var(--color-text-title); border: 1px solid #E2E8F0; }
+        .btn-outline:hover { border-color: var(--color-coral-red); color: var(--color-coral-red); -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+
+        .btn-line-add {
+            background: var(--color-line-green);
+            color: #FFF;
+            padding: 9px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 0.86rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.35);
+            transition: var(--transition-smooth);
+            min-height: 42px;
+        }
+        .btn-line-add:hover {
+            background: #05B34C;
+            -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 199, 85, 0.5);
+            color: #FFF;
+        }
+
+        /* 1. 橫幅 Hero */
+        .hero-section {
+            position: relative;
+            background: transparent;
+            padding: 180px 0 110px;
+            overflow: hidden;
+        }
+
+        .hero-glow-orange {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, rgba(245, 158, 11, 0.08) 45%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-glow-cyan {
+            position: absolute;
+            bottom: -15%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.09) 0%, transparent 65%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #FFF3EB;
+            color: var(--color-coral-red);
+            border: 1px solid #FFD0B8;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 2.9rem;
+            font-weight: 800;
+            color: var(--color-text-title);
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle { 
+            font-size: 1.05rem; 
+            color: var(--color-text-muted); 
+            margin-bottom: 35px; 
+            line-height: 1.85; 
+            max-width: 580px; 
+        }
+
+        .hero-actions { display: flex; gap: 16px; margin-bottom: 45px; flex-wrap: wrap; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            border-top: 1px solid rgba(226, 232, 240, 0.8);
+            padding-top: 25px;
+        }
+
+        .stat-num { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block; 
+        }
+        .stat-label { font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600; }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.92);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+        }
+
+        .hero-card h4 { font-size: 1.25rem; color: var(--color-text-title); font-weight: 800; margin-bottom: 14px; }
+        .hero-card p { font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 22px; line-height: 1.7; }
+
+        .feature-item-pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            background: rgba(255, 247, 237, 0.9);
+            color: var(--theme-orange-dark);
+            border: 1px solid var(--theme-orange-border);
+            transition: var(--transition-smooth);
+        }
+        .feature-item-pill:hover { -webkit-transform: translateX(4px); transform: translateX(4px); background: #FFEDD5; }
+        .feature-item-pill i { color: var(--color-coral-red); font-size: 1.1rem; }
+
+        /* 標題與簡介 */
+        .section-tag { 
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            letter-spacing: 2px; 
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        .section-title { font-size: 2.2rem; color: var(--color-text-title); margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }
+        .header-line { width: 50px; height: 4px; background: var(--gradient-primary); margin: 0 auto 16px; border-radius: 2px; }
+        .section-desc { color: var(--color-text-muted); max-width: 720px; margin: 0 auto 50px; font-size: 1.02rem; line-height: 1.75; }
+
+        /* 2. 關於三穎 */
+        .about-section { 
+            background: rgba(248, 250, 252, 0.7); 
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border-top: 1px solid rgba(226, 232, 240, 0.8); 
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8); 
+        }
+        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 35px; }
+        
+        .profile-card { 
+            background: rgba(255, 255, 255, 0.94); 
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0; 
+            border-radius: var(--radius-md); 
+            padding: 36px 30px; 
+            box-shadow: var(--shadow-subtle); 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-card h3 { color: var(--color-text-title); margin-bottom: 12px; font-size: 1.35rem; font-weight: 800; }
+        
+        .agency-box-vivid { 
+            margin-top: 20px; 
+            background: var(--theme-cyan-bg); 
+            padding: 20px; 
+            border-left: 4px solid var(--theme-cyan-main); 
+            border-radius: var(--radius-sm); 
+            border: 1px solid var(--theme-cyan-border);
+            border-left-width: 4px;
+        }
+        .agency-box-vivid strong { color: var(--theme-cyan-main); font-size: 0.85rem; letter-spacing: 1px; }
+        .agency-box-vivid p.agency-title { color: var(--color-text-title); font-weight: 800; font-size: 1.05rem; margin: 4px 0; }
+
+        /* ========================================================
+           🗺️ 高精度清晰真實地理輪廓向量地圖 (High-Precision Geo Map)
+           ======================================================== */
+        .real-geo-map-card {
+            width: 100%;
+            height: 330px;
+            margin-top: 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid #CBD5E1;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #F0F9FF 0%, #E0F2FE 40%, #F8FAFC 100%);
+            box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+        }
+
+        .real-geo-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* 國旗地標標釘 (只留搖曳國旗，不放國名) */
+        .map-flag-pin {
+            position: absolute;
+            transform: translate(-50%, -100%);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+        .map-flag-pin:hover {
+            transform: translate(-50%, -112%) scale(1.15);
+            z-index: 25;
+        }
+
+        /* 迎風搖曳純國旗 */
+        .flag-flutter-pure {
+            display: block;
+            border-radius: 3px;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25), 0 0 0 1.5px #FFFFFF;
+            -webkit-animation: flagWindWavePure 2.6s ease-in-out infinite alternate;
+            animation: flagWindWavePure 2.6s ease-in-out infinite alternate;
+            -webkit-transform-origin: left center;
+            transform-origin: left center;
+        }
+
+        .flag-flutter-pure img {
+            width: 27px;
+            height: 18px;
+            object-fit: cover;
+            border-radius: 2px;
+            display: block;
+        }
+
+        /* 台灣專屬金色旗桿與脈衝光環 */
+        .pin-tw-hub .flag-flutter-pure {
+            box-shadow: 0 4px 14px rgba(234, 58, 0, 0.5), 0 0 0 2px #F59E0B;
+        }
+        .pin-tw-hub .flag-flutter-pure img {
+            width: 32px;
+            height: 21px;
+        }
+
+        /* 立體旗桿與針尖定位點 */
+        .pin-stem {
+            width: 2px;
+            height: 14px;
+            background: linear-gradient(180deg, #F59E0B 0%, #64748B 100%);
+            position: relative;
+        }
+        .pin-ground-anchor {
+            width: 8px;
+            height: 8px;
+            background: #0284C7;
+            border-radius: 50%;
+            border: 1.5px solid #FFF;
+            position: absolute;
+            bottom: -4px;
+            left: -3px;
+            box-shadow: 0 0 6px #0284C7;
+        }
+
+        .pin-tw-hub .pin-stem {
+            background: linear-gradient(180deg, #FF6B35 0%, #EA3A00 100%);
+            height: 16px;
+        }
+        .pin-tw-hub .pin-ground-anchor {
+            background: var(--color-coral-red);
+            border-color: #FFD700;
+            box-shadow: 0 0 12px var(--color-coral-red);
+            -webkit-animation: radarPing 1.8s infinite ease-out;
+            animation: radarPing 1.8s infinite ease-out;
+        }
+
+        /* 真實地理位置坐標精確定位 */
+        .pos-geo-tw { top: 22%; left: 74%; } /* 台灣 Taiwan */
+        .pos-geo-vn { top: 35%; left: 50%; } /* 越南 Vietnam (中越海岸) */
+        .pos-geo-th { top: 38%; left: 34%; } /* 泰國 Thailand (曼谷/中南半島) */
+        .pos-geo-ph { top: 44%; left: 78%; } /* 菲律賓 Philippines (馬尼拉/呂宋島) */
+        .pos-geo-my { top: 62%; left: 34%; } /* 馬來西亞 Malaysia (吉隆坡/馬來半島) */
+        .pos-geo-sg { top: 72%; left: 37%; } /* 新加坡 Singapore (馬來半島南端) */
+
+        @-webkit-keyframes flagWindWavePure {
+            0% { -webkit-transform: rotate(0deg) skewY(0deg); transform: rotate(0deg) skewY(0deg); }
+            35% { -webkit-transform: rotate(-4deg) skewY(-2deg) scaleX(0.96); transform: rotate(-4deg) skewY(-2deg) scaleX(0.96); }
+            70% { -webkit-transform: rotate(4deg) skewY(2deg) scaleX(1.03); transform: rotate(4deg) skewY(2deg) scaleX(1.03); }
+            100% { -webkit-transform: rotate(-2deg) skewY(-1deg); transform: rotate(-2deg) skewY(-1deg); }
+        }
+        @keyframes flagWindWavePure {
+            0% { transform: rotate(0deg) skewY(0deg); }
+            35% { transform: rotate(-4deg) skewY(-2deg) scaleX(0.96); }
+            70% { transform: rotate(4deg) skewY(2deg) scaleX(1.03); }
+            100% { transform: rotate(-2deg) skewY(-1deg); }
+        }
+
+        @keyframes radarPing {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(234, 58, 0, 0.8); }
+            70% { transform: scale(1.3); box-shadow: 0 0 0 9px rgba(234, 58, 0, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(234, 58, 0, 0); }
+        }
+
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 35px; }
+        .pillar-card { 
+            background: rgba(255, 255, 255, 0.94); 
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0; 
+            border-radius: var(--radius-md); 
+            padding: 32px 22px; 
+            text-align: center; 
+            transition: var(--transition-smooth); 
+            box-shadow: var(--shadow-subtle); 
+        }
+        .pillar-card:hover { -webkit-transform: translateY(-6px); transform: translateY(-6px); box-shadow: var(--shadow-card); }
+        
+        .pillar-card h4 { color: var(--color-text-title); margin-bottom: 8px; font-size: 1.18rem; font-weight: 800; }
+        .pillar-icon { width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; margin: 0 auto 16px; }
+
+        .pillar-goal { border-top: 4px solid var(--theme-green-main); }
+        .pillar-goal:hover { border-color: var(--theme-green-border); border-top-color: var(--theme-green-main); }
+        .pillar-goal .pillar-icon { background: var(--theme-green-bg); color: var(--theme-green-main); border: 2px solid var(--theme-green-border); }
+        .pillar-goal .en-quote { color: var(--theme-green-main); font-size: 0.88rem; font-style: italic; font-weight: 700; margin-bottom: 8px; }
+
+        .pillar-vision { border-top: 4px solid var(--theme-orange-main); }
+        .pillar-vision:hover { border-color: var(--theme-orange-border); border-top-color: var(--theme-orange-main); }
+        .pillar-vision .pillar-icon { background: var(--theme-orange-bg); color: var(--theme-orange-main); border: 2px solid var(--theme-orange-border); }
+        .pillar-vision .en-quote { color: var(--theme-orange-main); font-size: 0.88rem; font-style: italic; font-weight: 700; margin-bottom: 8px; }
+
+        .pillar-mission { border-top: 4px solid var(--theme-purple-main); }
+        .pillar-mission:hover { border-color: var(--theme-purple-border); border-top-color: var(--theme-purple-main); }
+        .pillar-mission .pillar-icon { background: var(--theme-purple-bg); color: var(--theme-purple-main); border: 2px solid var(--theme-purple-border); }
+        .pillar-mission .en-quote { color: var(--theme-purple-main); font-size: 0.88rem; font-style: italic; font-weight: 700; margin-bottom: 8px; }
+
+        /* ========================================================
+           ✨ 3Yes Policy (專屬意象插圖/Icon)
+           ======================================================== */
+        .policy-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .policy-card { background: rgba(255, 255, 255, 0.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid #E2E8F0; border-radius: var(--radius-md); padding: 34px 28px; box-shadow: var(--shadow-subtle); }
+        .policy-card h3 { color: var(--color-text-title); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-weight: 800; }
+        
+        .yes-row-fancy {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            background: #FFF7ED;
+            border: 1px solid #FED7AA;
+            transition: var(--transition-smooth);
+        }
+        .yes-row-fancy:hover {
+            -webkit-transform: translateX(4px);
+            transform: translateX(4px);
+            background: #FFEDD5;
+        }
+
+        .yes-icon-orb {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .yes-icon-customers { background: linear-gradient(135deg, #FF7043, #EA3A00); color: #FFF; }
+        .yes-icon-vendors { background: linear-gradient(135deg, #38BDF8, #0284C7); color: #FFF; }
+        .yes-icon-ourselves { background: linear-gradient(135deg, #FBBF24, #D97706); color: #FFF; }
+        
+        .yes-content-wrap strong {
+            display: block;
+            color: var(--color-text-title);
+            font-size: 0.98rem;
+            margin-bottom: 2px;
+        }
+        .yes-content-wrap span {
+            font-size: 0.86rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+            display: block;
+        }
+
+        .support-chip {
+            background: var(--theme-cyan-bg);
+            border: 1px solid var(--theme-cyan-border);
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--theme-cyan-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .support-chip i { color: var(--theme-cyan-main); }
+
+        /* ========================================================
+           3. 產品專區 (全橫向滿版大器排版)
+           ======================================================== */
+        .products-section { background: transparent; }
+        .product-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 45px; flex-wrap: wrap; }
+        .tab-btn { background: rgba(255, 255, 255, 0.92); color: var(--color-text-title); border: 1px solid #E2E8F0; padding: 11px 24px; border-radius: 30px; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: var(--transition-smooth); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+        .tab-btn.active, .tab-btn:hover { background: var(--gradient-primary); color: #fff; border-color: transparent; box-shadow: var(--shadow-glow-orange); }
+
+        .products-full-list { display: flex; flex-direction: column; gap: 32px; }
+        
+        .product-full-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0; 
+            border-radius: var(--radius-md); 
+            overflow: hidden; 
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            transition: var(--transition-smooth); 
+            box-shadow: var(--shadow-subtle); 
+            position: relative;
+        }
+        .product-full-card:hover { -webkit-transform: translateY(-6px); transform: translateY(-6px); box-shadow: var(--shadow-card); }
+        
+        .prod-theme-purple { border-left: 5px solid var(--theme-purple-main); }
+        .prod-theme-purple .prod-tag-badge { background: var(--theme-purple-main); color: #FFF; }
+        .prod-theme-purple .prod-brand { color: var(--theme-purple-dark); }
+
+        .prod-theme-teal { border-left: 5px solid var(--theme-green-main); }
+        .prod-theme-teal .prod-tag-badge { background: var(--theme-green-main); color: #FFF; }
+        .prod-theme-teal .prod-brand { color: var(--theme-green-dark); }
+
+        .prod-theme-blue { border-left: 5px solid var(--theme-cyan-main); }
+        .prod-theme-blue .prod-tag-badge { background: var(--theme-cyan-main); color: #FFF; }
+        .prod-theme-blue .prod-brand { color: var(--theme-cyan-dark); }
+
+        .prod-theme-orange { border-left: 5px solid var(--theme-orange-main); }
+        .prod-theme-orange .prod-tag-badge { background: var(--theme-orange-main); color: #FFF; }
+        .prod-theme-orange .prod-brand { color: var(--theme-orange-dark); }
+
+        .prod-full-img-wrap {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            overflow: hidden;
+            background: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 15px;
+        }
+        .prod-full-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.5s ease; }
+        .product-full-card:hover .prod-full-img-wrap img { -webkit-transform: scale(1.04); transform: scale(1.04); }
+        
+        .prod-tag-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 4px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .prod-full-body { padding: 32px 30px; display: flex; flex-direction: column; background: transparent; }
+        .prod-full-body h3 { font-size: 1.38rem; color: var(--color-text-title); margin-bottom: 6px; font-weight: 800; }
+        .prod-brand { font-size: 0.9rem; font-weight: 800; margin-bottom: 14px; }
+        .prod-desc { font-size: 0.94rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.8; }
+
+        .sub-prod-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .sub-prod-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+        }
+        .sub-prod-box strong {
+            display: block;
+            color: var(--color-text-title);
+            font-size: 0.94rem;
+            margin-bottom: 5px;
+        }
+        .sub-prod-box p {
+            font-size: 0.86rem;
+            color: var(--color-text-muted);
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+
+        .tech-spec-bullets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 18px;
+            margin-bottom: 20px;
+        }
+        .tech-spec-bullets li {
+            font-size: 0.88rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tech-spec-bullets li i { font-size: 0.85rem; }
+
+        .prod-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-modal-open {
+            padding: 11px 22px;
+            background: #F8FAFC;
+            color: var(--color-text-title);
+            border: 1px solid #CBD5E1;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .btn-modal-open:hover { background: #EEF2FF; color: #4338CA; border-color: #818CF8; }
+        .prod-btn {
+            padding: 11px 24px;
+            background: var(--gradient-primary);
+            color: #fff;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .prod-btn:hover { box-shadow: var(--shadow-glow-orange); }
+
+        /* 應用場景 */
+        .app-scenarios-section {
+            background: rgba(248, 250, 252, 0.75);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(226, 232, 240, 0.8);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .scenario-intro-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-md);
+            border: 1px solid #E2E8F0;
+            border-left: 5px solid var(--color-coral-red);
+            padding: 24px 28px;
+            margin-bottom: 45px;
+            box-shadow: var(--shadow-subtle);
+        }
+        .scenario-intro-box p {
+            font-size: 1.02rem;
+            color: var(--color-text-title);
+            line-height: 1.85;
+            font-weight: 600;
+        }
+        .scenario-intro-box span.highlight {
+            color: var(--color-coral-red);
+            font-weight: 800;
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .scenario-card {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+        .scenario-card:hover {
+            -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .scenario-img-box {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .scenario-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .scenario-card:hover .scenario-img-box img { -webkit-transform: scale(1.06); transform: scale(1.06); }
+        .scenario-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            color: #FFF;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .scenario-body {
+            padding: 26px 22px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .scenario-body h3 {
+            font-size: 1.22rem;
+            color: var(--color-text-title);
+            margin-bottom: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scenario-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 5px;
+        }
+        .scenario-list-item {
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            transition: var(--transition-smooth);
+        }
+        .scenario-list-item strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .scenario-list-item p {
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        .scenario-tags-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #F1F5F9;
+        }
+        .stag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        /* 🔷 場景 1 內部科技藍 */
+        .scenario-card-top-cyan { border-top: 4px solid var(--theme-cyan-main); }
+        .scenario-card-top-cyan .scenario-badge { background: var(--theme-cyan-main); }
+        .scenario-card-top-cyan .scenario-body h3 i { color: var(--theme-cyan-main); }
+        .scenario-card-top-cyan .scenario-list-item { background: var(--theme-cyan-bg); border: 1px solid var(--theme-cyan-border); }
+        .scenario-card-top-cyan .scenario-list-item strong { color: var(--theme-cyan-dark); }
+        .scenario-card-top-cyan .scenario-list-item p { color: var(--color-text-muted); }
+        .scenario-card-top-cyan .stag { background: var(--theme-cyan-bg); color: var(--theme-cyan-dark); border: 1px solid var(--theme-cyan-border); }
+
+        /* 🟢 場景 2 內部翡翠綠 */
+        .scenario-card-top-green { border-top: 4px solid var(--theme-green-main); }
+        .scenario-card-top-green .scenario-badge { background: var(--theme-green-main); }
+        .scenario-card-top-green .scenario-body h3 i { color: var(--theme-green-main); }
+        .scenario-card-top-green .scenario-list-item { background: var(--theme-green-bg); border: 1px solid var(--theme-green-border); }
+        .scenario-card-top-green .scenario-list-item strong { color: var(--theme-green-dark); }
+        .scenario-card-top-green .scenario-list-item p { color: var(--color-text-muted); }
+        .scenario-card-top-green .stag { background: var(--theme-green-bg); color: var(--theme-green-dark); border: 1px solid var(--theme-green-border); }
+
+        /* 🟣 場景 3 內部數位藍紫 */
+        .scenario-card-top-purple { border-top: 4px solid var(--theme-purple-main); }
+        .scenario-card-top-purple .scenario-badge { background: var(--theme-purple-main); }
+        .scenario-card-top-purple .scenario-body h3 i { color: var(--theme-purple-main); }
+        .scenario-card-top-purple .scenario-list-item { background: var(--theme-purple-bg); border: 1px solid var(--theme-purple-border); }
+        .scenario-card-top-purple .scenario-list-item strong { color: var(--theme-purple-dark); }
+        .scenario-card-top-purple .scenario-list-item p { color: var(--color-text-muted); }
+        .scenario-card-top-purple .stag { background: var(--theme-purple-bg); color: var(--theme-purple-dark); border: 1px solid var(--theme-purple-border); }
+
+        /* 產品技術細節彈窗 Modal */
+        .spec-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .spec-modal.active { display: flex; }
+        .spec-modal-content {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 780px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: var(--radius-md);
+            padding: 35px 26px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid #E2E8F0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .spec-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: #FAFAFA;
+            border: 1px solid #E2E8F0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--color-text-title);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .spec-modal-close:hover { background: var(--color-coral-red); color: #fff; }
+        .spec-modal-header { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #F1F5F9; }
+        .spec-modal-header h3 { font-size: 1.4rem; color: var(--color-text-title); font-weight: 800; }
+        .spec-modal-header span { color: var(--color-coral-red); font-weight: 700; font-size: 0.88rem; }
+        
+        .advantage-box {
+            background: #FFF9F6;
+            border-left: 4px solid var(--color-coral-red);
+            padding: 16px 18px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .advantage-box strong { color: var(--color-text-title); font-size: 0.98rem; display: block; margin-bottom: 6px; }
+        .advantage-box p { color: var(--color-text-main); font-size: 0.9rem; line-height: 1.65; }
+        
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.88rem; }
+        .spec-table th, .spec-table td { padding: 10px 14px; border: 1px solid #E2E8F0; text-align: left; }
+        .spec-table th { background: #FAFAFA; color: var(--color-text-title); width: 35%; font-weight: 700; }
+        .spec-table td { background: #FFFFFF; color: var(--color-text-main); }
+
+        /* 4. 實機示範專用卡片 */
+        .video-showcase-section { 
+            background: transparent; 
+            padding: 90px 0; 
+        }
+        .video-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 35px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.94);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .f200-play-card {
+            position: relative;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            padding: 40px 24px;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-glow-orange);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .f200-card-bg-icon {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 9rem;
+            color: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .f200-badge-label {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFF;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+
+        .f200-main-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #FFFFFF;
+            color: var(--color-coral-red);
+            padding: 15px 28px;
+            border-radius: 50px;
+            font-size: 1.02rem;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: var(--transition-smooth);
+            min-height: 48px;
+        }
+        .f200-main-btn:hover { -webkit-transform: scale(1.04); transform: scale(1.04); background: #FFF8F5; }
+
+        .video-info h3 { font-size: 1.6rem; color: var(--color-text-title); margin-bottom: 12px; font-weight: 800; }
+        .video-info p { color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7; }
+        .video-feature-list li { font-size: 0.9rem; color: var(--color-text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .video-feature-list li i { color: var(--color-coral-red); }
+
+        /* 5. 聯絡我們 */
+        .contact-section { background: transparent; }
+        .contact-wrapper { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; }
+        .contact-info-card { 
+            background: #0F172A; 
+            color: #fff; 
+            border-radius: var(--radius-md); 
+            padding: 38px 30px; 
+            display: flex; 
+            flex-direction: column; 
+            box-shadow: var(--shadow-card); 
+            position: relative;
+        }
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-top-left-radius: var(--radius-md);
+            border-top-right-radius: var(--radius-md);
+        }
+
+        .contact-info-card h3 { font-size: 1.55rem; margin-bottom: 4px; font-weight: 800; }
+        .info-list { margin: 26px 0; display: flex; flex-direction: column; gap: 18px; }
+        .info-item { display: flex; gap: 14px; font-size: 0.95rem; }
+        .info-item i { color: var(--color-warm-orange); font-size: 1.2rem; margin-top: 2px; }
+        .info-email-link { color: #FFAA80; font-weight: 700; text-decoration: underline; word-break: break-all; }
+
+        /* 🟢 LINE 官方帳號專屬卡片 */
+        .line-official-box {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(6, 199, 85, 0.4);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .line-qr-img {
+            width: 105px !important;
+            height: 105px !important;
+            max-width: 105px !important;
+            object-fit: contain;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .line-text-wrap h4 { 
+            font-size: 1.05rem; 
+            color: #FFF; 
+            margin-bottom: 4px; 
+            font-weight: 800; 
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .line-text-wrap h4 i { color: var(--color-line-green); }
+        .line-text-wrap p { font-size: 0.82rem; color: #94A3B8; line-height: 1.45; margin-bottom: 8px; }
+
+        /* 表單 (iOS 防自動放大：font-size >= 16px) */
+        .contact-form-card { 
+            background: rgba(255, 255, 255, 0.94); 
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0; 
+            border-radius: var(--radius-md); 
+            padding: 38px 30px; 
+            box-shadow: var(--shadow-subtle); 
+            position: relative;
+        }
+        .form-header h3 { font-size: 1.45rem; color: var(--color-text-title); margin-bottom: 4px; font-weight: 800; }
+        .form-email-notice { font-size: 0.85rem; color: var(--color-coral-red); font-weight: 700; margin-bottom: 16px; }
+        .styled-form { display: flex; flex-direction: column; gap: 15px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-size: 0.88rem; font-weight: 700; color: var(--color-text-title); margin-bottom: 5px; }
+        
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; 
+            padding: 12px 14px; 
+            font-family: inherit; 
+            font-size: 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: var(--radius-sm); 
+            background: #FFF; 
+            transition: var(--transition-smooth); 
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-coral-red); box-shadow: 0 0 0 3px rgba(234, 58, 0, 0.12); }
+        .btn-submit { width: 100%; padding: 14px; background: var(--gradient-primary); color: #fff; border: none; border-radius: var(--radius-sm); font-weight: 800; cursor: pointer; font-size: 1.05rem; box-shadow: var(--shadow-glow-orange); transition: var(--transition-smooth); min-height: 48px; }
+        .btn-submit:hover { opacity: 0.95; -webkit-transform: translateY(-2px); transform: translateY(-2px); }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .form-status-alert {
+            display: none;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-status-alert.success {
+            display: flex;
+            background: #ECFDF5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+        }
+
+        /* 頁尾 (支援底部安全區) */
+        .site-footer { 
+            background: #0B1120; 
+            color: #94A3B8; 
+            padding: 60px 0 calc(25px + env(safe-area-inset-bottom)); 
+            font-size: 0.88rem; 
+            border-top: 1px solid rgba(255,255,255,0.08); 
+        }
+        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 35px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        
+        .footer-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .footer-logo span { color: #fff; font-weight: 800; font-size: 1.2rem; }
+        .footer-col h4 { color: #fff; margin-bottom: 16px; position: relative; padding-bottom: 6px; font-weight: 700; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 22px; height: 2px; background: var(--color-coral-red); border-radius: 2px; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a:hover { color: #FFF; }
+        .footer-bottom { text-align: center; padding-top: 25px; font-size: 0.82rem; color: #64748B; }
+
+        /* 手機與平板響應式規則 */
+        @media (max-width: 900px) {
+            .header-topbar { font-size: 0.76rem; }
+            .topbar-info { gap: 10px; }
+            .badge-partner { display: none; }
+            
+            .mobile-menu-toggle { display: block; }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #FFFFFF;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+                border-bottom: 2px solid var(--color-coral-red);
+                gap: 15px;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { width: 100%; text-align: center; }
+
+            .hero-section { padding: 150px 0 60px; }
+            .hero-container { grid-template-columns: 1fr; gap: 30px; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; }
+
+            .profile-grid, .pillars-grid, .policy-wrap, .scenarios-grid, .video-wrapper, .contact-wrapper, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-full-card {
+                grid-template-columns: 1fr;
+                border-left: none;
+                border-top: 5px solid var(--color-coral-red);
+            }
+            .prod-full-img-wrap { min-height: 200px; height: 200px; }
+            .sub-prod-grid, .tech-spec-bullets { grid-template-columns: 1fr; }
+
+            .prod-actions { flex-direction: column; }
+            .prod-actions .btn-modal-open, .prod-actions .prod-btn { width: 100%; }
+            .form-row { grid-template-columns: 1fr; }
+            
+            .line-official-box { flex-direction: column; text-align: center; }
+            .spec-table th { width: 40%; }
+            
+            .real-geo-map-card { height: 280px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.85rem; }
+            .hero-stats { grid-template-columns: 1fr; text-align: center; }
+            .company-name-zh { font-size: 1.2rem; }
+            .company-name-en { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部資訊與導覽列 -->
+    <header class="site-header">
+        <div class="header-topbar">
+            <div class="container topbar-content">
+                <div class="topbar-info">
+                    <span><i class="fa-solid fa-location-dot"></i> 台北市內湖區金湖路363巷25弄10號</span>
+                    <span><i class="fa-solid fa-phone"></i> <a href="tel:0931036245" style="color:#FFF;">0931-036245</a></span>
+                </div>
+                <div class="topbar-links">
+                    <span class="badge-partner"><i class="fa-solid fa-certificate"></i> TECAN Authorized Partner</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar container">
+            <a href="#home" class="logo-brand">
+                <!-- 🔮 3D 滿版立體水晶圓球 Logo (62px + 呼吸光) -->
+                <div class="logo-sphere-wrapper">
+                    <img src="logo.jpg" alt="三穎生技 3D Logo" class="logo-sphere-img" onerror="this.src='logo.png'">
+                </div>
+                <div>
+                    <span class="company-name-zh">三穎生技有限公司</span>
+                    <span class="company-name-en">3Ying Biologic Technology Inc.</span>
+                </div>
+            </a>
+
+            <!-- 手機漢堡按鈕 -->
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- 導覽選單 -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" onclick="closeMobileMenu()">首頁 Home</a></li>
+                <li><a href="#about" class="nav-link" onclick="closeMobileMenu()">關於三穎 About Us</a></li>
+                <li><a href="#products" class="nav-link" onclick="closeMobileMenu()">產品系列 Products</a></li>
+                <li><a href="#applications" class="nav-link" onclick="closeMobileMenu()">應用場景 Applications</a></li>
+                <li><a href="#video-demo" class="nav-link" onclick="closeMobileMenu()">實機示範 Demo</a></li>
+                <li><a href="#contact" class="nav-link" onclick="closeMobileMenu()">聯絡我們 Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary-sm" style="display:block;"><i class="fa-regular fa-paper-plane"></i> 詢價諮詢</a></li>
+            </ul>
+        </nav>
+
+        <!-- 跑馬燈 -->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <div class="marquee-item">
+                    <div class="sphere-mini"><img src="logo.jpg" alt="Logo" onerror="this.src='logo.png'"></div>
+                    <span>三穎生技有限公司 <span class="marquee-highlight">3Ying Biologic Technology Inc.</span></span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fa-solid fa-certificate" style="color: var(--color-coral-red);"></i>
+                    <span>瑞士 TECAN 原廠授權代理 (Taiwan & SouthEast Asia)</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fa-solid fa-microscope" style="color: var(--color-cyan-blue);"></i>
+                    <span>TECAN Infinite® 200 PRO / M NANO+ 多功能微盤分析儀</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fa-solid fa-gears" style="color: var(--color-emerald-green);"></i>
+                    <span>TECAN Cavro® XC / XLP 6000 & 碩控 SOCON 運動模組代理</span>
+                </div>
+                <!-- 無縫重複 -->
+                <div class="marquee-item">
+                    <div class="sphere-mini"><img src="logo.jpg" alt="Logo" onerror="this.src='logo.png'"></div>
+                    <span>三穎生技有限公司 <span class="marquee-highlight">3Ying Biologic Technology Inc.</span></span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fa-solid fa-certificate" style="color: var(--color-coral-red);"></i>
+                    <span>瑞士 TECAN 原廠授權代理 (Taiwan & SouthEast Asia)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. 首頁橫幅 -->
+    <section class="hero-section" id="home">
+        <div class="hero-glow-orange"></div>
+        <div class="hero-glow-cyan"></div>
+        <div class="container hero-container">
+            <div>
+                <div class="hero-badge"><i class="fa-solid fa-seedling"></i> Liquid Handling Precision Solutions</div>
+                <h1 class="hero-title">賦予精準計量卓越價值<br><span>引領生技自動化關鍵核心</span></h1>
+                <p class="hero-subtitle">三穎生技有限公司 (3Ying Biologic Technology Inc.) 專注於微量分注、TECAN Infinite® 分析儀、TECAN Washer 洗滌機、OEM 柱塞泵與實驗室高階耗材，以厚實工程實力為亞太區客戶提供全方位技術後盾。</p>
+                
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-brand"><i class="fa-solid fa-layer-group"></i> 瀏覽核心產品</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> 聯繫專屬工程師</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><span class="stat-num">2017</span><span class="stat-label">成立年份 Founded</span></div>
+                    <div><span class="stat-num">6+</span><span class="stat-label">亞太服務市場 SEA</span></div>
+                    <div><span class="stat-num">100%</span><span class="stat-label">原廠工程技術支援</span></div>
+                </div>
+            </div>
+
+            <!-- 右側生技特色條目卡片 -->
+            <div class="hero-card">
+                <h4><i class="fa-solid fa-microscope" style="color: var(--color-coral-red); margin-right: 8px;"></i> Precision Detection & Handling</h4>
+                <p>瑞士 TECAN 原廠授權合作夥伴，提供從微量吸光光度、超微量核酸定量到微盤自動化洗滌的完整實驗室方案。</p>
+                
+                <div class="feature-item-pill">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>TECAN Infinite® 200 PRO 多功能微盤檢測</span>
+                </div>
+                <div class="feature-item-pill">
+                    <i class="fa-solid fa-dna"></i>
+                    <span>M NANO+ (NanoQuant Plate™) 2 µL 超微量分析</span>
+                </div>
+                <div class="feature-item-pill">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span>HydroSpeed™ Cell Protection™ 專利洗板技術</span>
+                </div>
+                <div class="feature-item-pill">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>TECAN Cavro® XC / XLP 6000 & 碩控 (SOCON) 模組</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 關於三穎 (含高精度清晰真實地理輪廓向量地圖) -->
+    <section class="section-padding about-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">COMPANY PROFILE</span>
+                <h2 class="section-title">關於三穎生技有限公司</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">致力於成為產業中最值得信賴的流體控制與微量分注解決方案專家</p>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <h3>公司簡介 Profile</h3>
+                    <p style="color: var(--color-coral-red); font-weight: 800; margin-bottom: 8px;">Founded in 2017, Taipei, Taiwan</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.8;">創立於台北，深耕生醫檢驗儀器、自動化分析及高精度流體控制領域，提供頂尖 OEM/ODM 元件、原廠授權模組與專業工程服務。</p>
+                    
+                    <div class="agency-box-vivid">
+                        <strong><i class="fa-solid fa-award"></i> AGENT AUTHORIZED</strong>
+                        <p class="agency-title">Taiwan & SouthEast Asia</p>
+                        <p style="color: var(--color-text-muted); font-size: 0.88rem;">原廠授權代理銷售與技術支援涵蓋台灣、新加坡、越南、菲律賓、馬來西亞、泰國等亞太市場。</p>
+                    </div>
+                </div>
+
+                <!-- 🗺️ 高精度清晰真實地理輪廓地圖 + 純國旗迎風搖曳 -->
+                <div class="profile-card">
+                    <h3>深厚客戶夥伴關係</h3>
+                    <p style="color: var(--color-coral-red); font-weight: 800; font-size: 0.95rem;">Strong Customer Relationship</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">長期深耕服務台灣與東南亞關鍵 OEM / ODM 頂尖製造商：</p>
+                    
+                    <!-- 高解析真實地理地圖容器 -->
+                    <div class="real-geo-map-card">
+                        <!-- 詳細繪製之東亞、台灣與東南亞真實地理海岸線 SVG -->
+                        <svg class="real-geo-svg" viewBox="0 0 540 340">
+                            <defs>
+                                <linearGradient id="mainlandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#CBD5E1"/>
+                                    <stop offset="100%" stop-color="#94A3B8"/>
+                                </linearGradient>
+                                <linearGradient id="indochinaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#94A3B8"/>
+                                    <stop offset="100%" stop-color="#64748B"/>
+                                </linearGradient>
+                                <linearGradient id="twGeoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFEDD5"/>
+                                    <stop offset="100%" stop-color="#FED7AA"/>
+                                </linearGradient>
+                                <pattern id="geoGridPattern" width="16" height="16" patternUnits="userSpaceOnUse">
+                                    <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(2,132,199,0.06)" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+
+                            <!-- 背景微光網格 -->
+                            <rect width="100%" height="100%" fill="url(#geoGridPattern)"/>
+
+                            <!-- 中國大陸華南沿海 (真實海岸曲折) -->
+                            <path d="M 0,0 L 460,0 C 440,30 405,45 370,52 C 340,58 310,60 280,68 C 240,78 200,90 170,110 L 0,110 Z" fill="url(#mainlandGrad)" stroke="#64748B" stroke-width="1.2" opacity="0.65"/>
+
+                            <!-- 海南島 (Hainan Island) -->
+                            <path d="M 230,85 C 245,80 258,92 250,105 C 240,115 225,108 222,98 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1"/>
+
+                            <!-- 中南半島 (泰國、越南、寮國、柬埔寨 - 包含紅河三角洲、峴港彎折、湄公河三角洲、暹羅灣) -->
+                            <path d="M 170,110 
+                                     C 195,112 215,118 225,130 
+                                     C 238,145 248,160 270,170 
+                                     C 285,178 290,195 275,215 
+                                     C 260,232 235,245 220,230 
+                                     C 210,215 220,195 205,185 
+                                     C 190,175 160,180 150,190 
+                                     C 135,205 130,225 145,245 
+                                     C 155,260 160,275 150,285 
+                                     C 140,275 130,245 125,220 
+                                     C 120,195 105,175 115,145 
+                                     C 125,120 145,115 170,110 Z" 
+                                  fill="url(#indochinaGrad)" stroke="#475569" stroke-width="1.3" opacity="0.85"/>
+
+                            <!-- 馬來半島 (West Malaysia - 延伸至柔佛海峽) -->
+                            <path d="M 145,245 C 158,260 168,280 185,295 C 180,302 170,300 160,285 C 145,265 140,255 145,245 Z" fill="#64748B" stroke="#475569" stroke-width="1.2"/>
+
+                            <!-- 新加坡 (Singapore 獨立島) -->
+                            <circle cx="186" cy="303" r="3.5" fill="#0284C7" stroke="#FFF" stroke-width="1"/>
+
+                            <!-- 台灣本島 (Taiwan - 真實番薯型傾斜島嶼、中央山脈海岸輪廓) -->
+                            <path d="M 395,60 
+                                     C 405,55 412,65 415,80 
+                                     C 416,100 408,118 398,125 
+                                     C 388,128 385,112 386,95 
+                                     C 387,78 390,65 395,60 Z" 
+                                  fill="url(#twGeoGrad)" stroke="#EA3A00" stroke-width="2.2" filter="drop-shadow(0 3px 6px rgba(234,58,0,0.35))"/>
+
+                            <!-- 菲律賓群島 (Philippines - 呂宋島、薩馬島、雷伊泰島、民答那峨島真實群島) -->
+                            <!-- 呂宋島 (Luzon) -->
+                            <path d="M 410,120 C 425,112 435,125 438,145 C 430,165 415,160 410,140 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1"/>
+                            <!-- 民答那峨島 (Mindanao) -->
+                            <path d="M 425,200 C 445,195 460,210 455,230 C 440,245 420,235 425,200 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1"/>
+                            <!-- 巴拉望島 (Palawan) -->
+                            <path d="M 345,185 C 360,195 375,215 365,222 C 352,212 340,195 345,185 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1"/>
+
+                            <!-- 婆羅洲 (Borneo / 東馬沙巴砂拉越 / 印尼加里曼丹) -->
+                            <path d="M 235,245 C 270,225 315,220 340,245 C 355,265 345,295 310,310 C 270,320 240,295 235,245 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.2" opacity="0.65"/>
+
+                            <!-- 蘇門答臘 (Sumatra - 斜向大島) -->
+                            <path d="M 100,240 C 130,265 160,295 190,335 C 175,340 145,315 120,285 C 95,255 90,245 100,240 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" opacity="0.55"/>
+
+                            <!-- 台灣總部輻射連接航線 (以虛線精準引導至東南亞各樞紐) -->
+                            <path d="M 400,95 Q 310,170 186,303" fill="none" stroke="#EA3A00" stroke-width="1.6" stroke-dasharray="4,4" opacity="0.75"/>
+                            <path d="M 400,95 Q 320,135 255,165" fill="none" stroke="#0284C7" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.65"/>
+                            <path d="M 400,95 Q 300,120 180,155" fill="none" stroke="#059669" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.65"/>
+                            <path d="M 400,95 Q 425,120 428,148" fill="none" stroke="#6366F1" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.65"/>
+                        </svg>
+
+                        <!-- 1. 台灣 (Taiwan) 核心樞紐國旗 (純國旗搖曳) -->
+                        <div class="map-flag-pin pos-geo-tw pin-tw-hub" title="台灣 Taiwan (Key OEM/ODM 核心基地)">
+                            <div class="flag-flutter-pure">
+                                <img src="https://flagcdn.com/w40/tw.png" alt="Taiwan Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor"></div></div>
+                        </div>
+
+                        <!-- 2. 越南 (Vietnam) 國旗 (峴港/沿海樞紐) -->
+                        <div class="map-flag-pin pos-geo-vn" title="越南 Vietnam">
+                            <div class="flag-flutter-pure" style="animation-delay: -1.4s;">
+                                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor" style="background:#059669; box-shadow:0 0 6px #059669;"></div></div>
+                        </div>
+
+                        <!-- 3. 泰國 (Thailand) 國旗 (曼谷/中南半島中心) -->
+                        <div class="map-flag-pin pos-geo-th" title="泰國 Thailand">
+                            <div class="flag-flutter-pure" style="animation-delay: -1.1s;">
+                                <img src="https://flagcdn.com/w40/th.png" alt="Thailand Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor" style="background:#F59E0B; box-shadow:0 0 6px #F59E0B;"></div></div>
+                        </div>
+
+                        <!-- 4. 菲律賓 (Philippines) 國旗 (馬尼拉/呂宋島) -->
+                        <div class="map-flag-pin pos-geo-ph" title="菲律賓 Philippines">
+                            <div class="flag-flutter-pure" style="animation-delay: -0.4s;">
+                                <img src="https://flagcdn.com/w40/ph.png" alt="Philippines Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor" style="background:#6366F1; box-shadow:0 0 6px #6366F1;"></div></div>
+                        </div>
+
+                        <!-- 5. 馬來西亞 (Malaysia) 國旗 (吉隆坡/馬來半島) -->
+                        <div class="map-flag-pin pos-geo-my" title="馬來西亞 Malaysia">
+                            <div class="flag-flutter-pure" style="animation-delay: -2.0s;">
+                                <img src="https://flagcdn.com/w40/my.png" alt="Malaysia Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor" style="background:#0D9488; box-shadow:0 0 6px #0D9488;"></div></div>
+                        </div>
+
+                        <!-- 6. 新加坡 (Singapore) 國旗 (半島南端海峽) -->
+                        <div class="map-flag-pin pos-geo-sg" title="新加坡 Singapore">
+                            <div class="flag-flutter-pure" style="animation-delay: -0.8s;">
+                                <img src="https://flagcdn.com/w40/sg.png" alt="Singapore Flag">
+                            </div>
+                            <div class="pin-stem"><div class="pin-ground-anchor" style="background:#0284C7; box-shadow:0 0 6px #0284C7;"></div></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 企業目標、願景與使命 -->
+            <div class="pillars-grid">
+                <div class="pillar-card pillar-goal">
+                    <div class="pillar-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Our Goal 企業目標</h4>
+                    <p class="en-quote">"To be liquid handling experts & solutions provider."</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">成為生技自動化與流體分注領域首選專家與整合方案提供者。</p>
+                </div>
+                <div class="pillar-card pillar-vision">
+                    <div class="pillar-icon"><i class="fa-solid fa-compass"></i></div>
+                    <h4>The Vision 企業願景</h4>
+                    <p class="en-quote">"Bridge you to succeed through our engineering capabilities."</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">以堅實工程與技術支援實力，助客戶邁向商業與技術成功。</p>
+                </div>
+                <div class="pillar-card pillar-mission">
+                    <div class="pillar-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>3 Ying Mission 企業使命</h4>
+                    <p class="en-quote">"Make affordable precise measurement for industry."</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">打造兼具極致精準度與合宜成本效益的儀器計量方案。</p>
+                </div>
+            </div>
+
+            <div class="policy-wrap">
+                <!-- ✨ 3Yes 政策 -->
+                <div class="policy-card">
+                    <h3><i class="fa-solid fa-circle-check" style="color: var(--color-coral-red);"></i> 3Yes Policy 誠信承諾</h3>
+                    
+                    <!-- Yes to Customers -->
+                    <div class="yes-row-fancy">
+                        <div class="yes-icon-orb yes-icon-customers">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <div class="yes-content-wrap">
+                            <strong>Yes to Customers 客戶優先</strong>
+                            <span>傾聽客戶需求，快速提供最佳客製方案與技術響應。</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Yes to Vendors -->
+                    <div class="yes-row-fancy">
+                        <div class="yes-icon-orb yes-icon-vendors">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="yes-content-wrap">
+                            <strong>Yes to Vendors 原廠互信</strong>
+                            <span>緊密合作共創價值，落實瑞士與國際原廠最高品質標準。</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Yes to Ourselves -->
+                    <div class="yes-row-fancy">
+                        <div class="yes-icon-orb yes-icon-ourselves">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="yes-content-wrap">
+                            <strong>Yes to Ourselves 自我超越</strong>
+                            <span>堅持專業技術精進，對每次專案與交付全力以赴。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-card">
+                    <h3><i class="fa-solid fa-gears" style="color: var(--theme-cyan-main);"></i> Expertise Support 專業支援</h3>
+                    <p style="color: var(--theme-cyan-main); font-style: italic; font-weight: 700; margin-bottom: 12px;">"Strong support resources to empower your technical and business."</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 14px;">三穎不僅銷售硬體元件，更提供系統選型、通訊協定整合、流體控制除錯與亞太在地備品支援，隨時與您同行。</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <div class="support-chip"><i class="fa-solid fa-wrench"></i>系統選型評估</div>
+                        <div class="support-chip"><i class="fa-solid fa-code"></i>通訊協定整合</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         3. 產品專區 (全橫向滿版大器排版 Full-Width Horizontal List)
+         ======================================================== -->
+    <section class="section-padding products-section" id="products">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">PRODUCT PORTFOLIO</span>
+                <h2 class="section-title">核心產品與代理方案</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">涵蓋國際主流品牌之高精度微盤分析儀、自動洗滌機、OEM 柱塞泵及分析耗材，提供頂尖工程整合支援</p>
+            </div>
+
+            <div class="product-tabs">
+                <button class="tab-btn active" onclick="filterTab('all', this)">全部產品 All</button>
+                <button class="tab-btn" onclick="filterTab('reader', this)">TECAN Infinite® 200 PRO</button>
+                <button class="tab-btn" onclick="filterTab('washer', this)">TECAN Washer (微盤洗滌機)</button>
+                <button class="tab-btn" onclick="filterTab('pb', this)">Pumps (TECAN / 碩控 SOCON)</button>
+                <button class="tab-btn" onclick="filterTab('syringe', this)">Syringe 注射管 (TECAN / 鼎珂)</button>
+                <button class="tab-btn" onclick="filterTab('tips', this)">Tips 分注吸頭 (TECAN / 博毓)</button>
+            </div>
+
+            <div class="products-full-list">
+                
+                <!-- 1. TECAN Infinite 200 PRO (橫向滿版) -->
+                <div class="product-full-card prod-theme-purple prod-item" data-cat="reader">
+                    <div class="prod-full-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" alt="TECAN Infinite 200 PRO Microplate Reader">
+                        <span class="prod-tag-badge"><i class="fa-solid fa-cube" style="margin-right:4px;"></i> M NANO+ / Microplate</span>
+                    </div>
+                    <div class="prod-full-body">
+                        <h3>TECAN Infinite® 200 PRO 多功能微盤酵素免疫分析儀</h3>
+                        <p class="prod-brand">瑞士原裝進口 | 模組化多功能微盤檢測平台 (Quad4 Monochromators™ & Filter-based)</p>
+                        <p class="prod-desc">
+                            業界標竿微盤檢測平台，支援吸收光 (UV/Vis Abs)、頂部/底部螢光強度 (FI)、時間分辨螢光 (TRF)、螢光偏振 (FP)、FRET/TR-FRET/HTRF®、化學發光 (Luminescence) 及雙色發光 (BRET)。選配專利 <strong>M NANO+ (NanoQuant Plate™)</strong>，提供超微量 2 µL 樣品之高靈敏核酸與蛋白質快速定量。
+                        </p>
+                        
+                        <ul class="tech-spec-bullets">
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-purple-main);"></i> <strong>四光柵技術 (Quad4)：</strong>230–1000 nm 波長 1 nm 步進自由設定</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-purple-main);"></i> <strong>超微量分析 (NanoQuant)：</strong>16 孔石英基座，100% 免校正 (Calibration-Free)</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-purple-main);"></i> <strong>自動 Z-軸對焦 (Automated z-Focus)：</strong>大幅提升微孔盤螢光訊噪比</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-purple-main);"></i> <strong>溫控與震盪：</strong>室溫 +5°C 至 42°C，支援線性與軌道式震盪</li>
+                        </ul>
+
+                        <div class="prod-actions">
+                            <button class="btn-modal-open" onclick="openSpecModal('readerModal')"><i class="fa-solid fa-circle-info"></i> 查看完整技術規格</button>
+                            <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 諮詢報價與樣品測試</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TECAN Washer (橫向滿版) -->
+                <div class="product-full-card prod-theme-teal prod-item" data-cat="washer">
+                    <div class="prod-full-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="TECAN HydroSpeed Microplate Washer" onerror="this.src='https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80'">
+                        <span class="prod-tag-badge"><i class="fa-solid fa-droplet" style="margin-right:4px;"></i> TECAN HydroSpeed™</span>
+                    </div>
+                    <div class="prod-full-body">
+                        <h3>TECAN HydroSpeed™ 高效微盤洗板機 (96/384 孔全自動洗滌)</h3>
+                        <p class="prod-brand">瑞士原裝進口 | 專為 ELISA、細胞貼附洗滌與磁珠實驗設計的高性能洗滌系統</p>
+                        <p class="prod-desc">
+                            專為高通量 ELISA、弱貼附性細胞與磁珠分子檢測設計的自動化洗板機。配備智慧氣壓式液位感測 (pLLD)，支援 96 與 384 孔平底、圓底及 V 型底微孔盤。具備極低洗滌殘留體積 (&lt; 2 µL/孔) 與四向交叉抽吸設計，徹底避免孔間交叉污染。
+                        </p>
+                        
+                        <ul class="tech-spec-bullets">
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-green-main);"></i> <strong>Cell Protection™ 專利分注：</strong>溫和滴落式沖洗，弱貼附細胞回收率 ≥85%</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-green-main);"></i> <strong>雙磁鐵磁珠洗滌 (Smart-2 MBS)：</strong>每孔雙稀土磁鐵，磁珠回收率 ≥90%</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-green-main);"></i> <strong>Anti-Clogging™ 主動防堵：</strong>待機自動沖洗浸泡針頭，免工具快拆超音波清洗</li>
+                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-green-main);"></i> <strong>極速平行洗滌：</strong>15 秒內完成 96 孔盤完整洗滌循環 (分注/抽吸/震盪)</li>
+                        </ul>
+
+                        <div class="prod-actions">
+                            <button class="btn-modal-open" onclick="openSpecModal('washerModal')"><i class="fa-solid fa-circle-info"></i> 查看完整技術規格</button>
+                            <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 諮詢報價與技術規格</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Pumps: TECAN Cavro XC / XLP 6000 & 碩控 SOCON (橫向滿版) -->
+                <div class="product-full-card prod-theme-blue prod-item" data-cat="pb">
+                    <div class="prod-full-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="TECAN Cavro XC XLP 6000 and SOCON Motion Solution">
+                        <span class="prod-tag-badge"><i class="fa-solid fa-gears" style="margin-right:4px;"></i> Pumps & Motion</span>
+                    </div>
+                    <div class="prod-full-body">
+                        <h3>Pumps 精密柱塞泵與自動化運動控制模組</h3>
+                        <p class="prod-brand">瑞士 TECAN Cavro® XC (XCalibur) / XLP 6000 / 台灣碩控 (SOCON) 運動整合模組</p>
+                        <p class="prod-desc">
+                            三穎生技代理瑞士原廠最新世代高精度 OEM 柱塞泵，並結合在地工程研發整合能力，提供現成且經過驗證的自動化移液與運動控制模組，滿足 IVD、生醫分析與半導體流體控制需求：
+                        </p>
+                        
+                        <div class="sub-prod-grid">
+                            <div class="sub-prod-box">
+                                <strong><i class="fa-solid fa-certificate" style="color:var(--theme-cyan-main); margin-right:5px;"></i> TECAN Cavro® XC / XLP 6000 柱塞泵</strong>
+                                <p><strong>XC (30mm) / XLP 6000 (60mm)</strong> 行程步進滾珠螺桿驅動，微步解析度高達 24,000 ~ 48,000 increments/stroke，全行程精度 CV ≤ 0.05%，自動偵測 RS-232/RS-485/CAN 介面，支援高達 15 台多泵匯流排獨立串接。</p>
+                            </div>
+                            
+                            <div class="sub-prod-box" style="border-left:3px solid var(--theme-cyan-main); background:#F0F9FF;">
+                                <strong style="color:var(--theme-cyan-dark);"><i class="fa-solid fa-microchip" style="color:var(--theme-cyan-main); margin-right:5px;"></i> 碩控 (SOCON) Z軸 + ADP 模組整合方案</strong>
+                                <p><strong>三穎生技已成功實踐系統整合！</strong>協助 ODM/OEM 客戶將 Z 軸精密伺服單元與空氣置換分注模組 (ADP) <strong>極其輕鬆快速地整合至既有的 XY 運動平台上</strong>，大幅縮短研發週期。</p>
+                            </div>
+                        </div>
+
+                        <div class="prod-actions">
+                            <button class="btn-modal-open" onclick="openSpecModal('pumpModal')"><i class="fa-solid fa-circle-info"></i> 查看 XC/XLP 與通訊規格</button>
+                            <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 預約工程師選型諮詢</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Syringe: TECAN & 上海鼎珂 (橫向滿版) -->
+                <div class="product-full-card prod-theme-orange prod-item" data-cat="syringe">
+                    <div class="prod-full-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="TECAN and Dingke Precision Syringes">
+                        <span class="prod-tag-badge"><i class="fa-solid fa-vial" style="margin-right:4px;"></i> Syringe 專區</span>
+                    </div>
+                    <div class="prod-full-body">
+                        <h3>Syringe 精密注射管 / 柱塞管系列 (生醫與半導體先進耐化學製程)</h3>
+                        <p class="prod-brand">瑞士 TECAN 原廠注射管 / 上海鼎珂 (Dingke) 抗強酸 & PVDF 專業注射管</p>
+                        <p class="prod-desc">
+                            提供從微量分析到工業級強腐蝕性液體輸送的全系列注射管，兼具極致氣密性與特殊化學介質耐受力：
+                        </p>
+                        
+                        <div class="sub-prod-grid">
+                            <div class="sub-prod-box">
+                                <strong><i class="fa-solid fa-circle-check" style="color:var(--theme-orange-main); margin-right:5px;"></i> TECAN 原廠高精度 Syringe</strong>
+                                <p>採用特級高硼矽玻璃與醫療級 PTFE 柱塞頭，容積涵蓋 50 µL 至 25 mL，氣密性佳、耐磨損且具備超長使用壽命。</p>
+                            </div>
+                            
+                            <div class="sub-prod-box" style="border-left:3px solid var(--theme-orange-main); background:#FFF7ED;">
+                                <strong style="color:var(--theme-orange-dark);"><i class="fa-solid fa-shield-halved" style="color:var(--theme-orange-main); margin-right:5px;"></i> 上海鼎珂 (Dingke) 抗強酸 & PVDF 材質 Syringe</strong>
+                                <p><strong>強力抗 HF (氫氟酸) 與 96% 濃硫酸！</strong>與 TECAN Cavro XC/XLP Pump 100% 規格無縫相容；特別提供 <strong>PVDF 材質 Syringe</strong>，專門滿足<strong>半導體 Nano 先進製程</strong>極端抗 HF 腐蝕點液需求。</p>
+                            </div>
+                        </div>
+
+                        <div class="prod-actions">
+                            <button class="btn-modal-open" onclick="openSpecModal('syringeModal')"><i class="fa-solid fa-circle-info"></i> 查看材質耐受表與規格</button>
+                            <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 索取規格報價清單</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Tips: TECAN & 博毓 Quaero (橫向滿版) -->
+                <div class="product-full-card prod-theme-teal prod-item" data-cat="tips">
+                    <div class="prod-full-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="TECAN and Quaero Pipette Tips">
+                        <span class="prod-tag-badge"><i class="fa-solid fa-filter" style="margin-right:4px;"></i> Tips 專區</span>
+                    </div>
+                    <div class="prod-full-body">
+                        <h3>Tips 自動化分注吸頭系列 (原廠認證與高性價比相容互補)</h3>
+                        <p class="prod-brand">瑞士 TECAN 原廠認證吸頭 / 博毓 (Quaero) 自動化高相容吸頭</p>
+                        <p class="prod-desc">
+                            全面滿足自動化液體處理工作站的量產與日常檢驗需求，提供最高純度保證與最佳成本效益之互補組合：
+                        </p>
+                        
+                        <div class="sub-prod-grid">
+                            <div class="sub-prod-box">
+                                <strong><i class="fa-solid fa-certificate" style="color:var(--theme-green-main); margin-right:5px;"></i> TECAN 原廠認證 Tips</strong>
+                                <p>符合嚴格 Bio-Clean 認證（無 RNase/DNase/熱原/蛋白酶），提供黑色導電吸頭（支援電容式液位感測 cLLD）與透明過濾吸頭，容積涵蓋 10 µL 至 1000 µL。</p>
+                            </div>
+                            
+                            <div class="sub-prod-box" style="border-left:3px solid var(--theme-green-main); background:#ECFDF5;">
+                                <strong style="color:var(--theme-green-dark);"><i class="fa-solid fa-handshake" style="color:var(--theme-green-main); margin-right:5px;"></i> 博毓 (Quaero) Tips 兼容互補方案</strong>
+                                <p><strong>與 TECAN 平台 100% 完美相容！</strong>高精度模具注塑、極佳垂直度、管壁經超低吸附處理；提供原廠級品質與極具競爭力之價格，大幅降低常規高通量實驗耗材成本。</p>
+                            </div>
+                        </div>
+
+                        <div class="prod-actions">
+                            <button class="btn-modal-open" onclick="openSpecModal('tipsModal')"><i class="fa-solid fa-circle-info"></i> 吸頭規格與相容清單</button>
+                            <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 申請吸頭樣品測試</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 應用場景 -->
+    <section class="section-padding app-scenarios-section" id="applications">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">APPLICATION SCENARIOS</span>
+                <h2 class="section-title">多元專業生化與分子應用場景</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">TECAN Infinite F200 / F200 PRO 多功能微盤分析儀（酶標儀）廣泛應用於生命科學、細胞生物學與高通量藥物研發篩選領域</p>
+            </div>
+
+            <div class="scenario-intro-box">
+                <p>
+                    <i class="fa-solid fa-circle-info" style="color: var(--color-coral-red); margin-right: 8px;"></i>
+                    <strong>TECAN Infinite F200 / F200 PRO</strong> 是一台以濾鏡式（<span class="highlight">Filter-based</span>）螢光檢測為主的高靈敏度多功能微量盤分析儀（酶標儀），支援<span class="highlight">螢光強度 (FI)</span>、<span class="highlight">冷光 (Luminescence)</span> 及 <span class="highlight">吸光 (Absorbance)</span> 等全方位量測，為分子生物學與藥物篩選提供卓越數據品質。
+                </p>
+            </div>
+
+            <div class="scenarios-grid">
+                
+                <!-- 場景 1：核酸與蛋白質分析 -->
+                <div class="scenario-card scenario-card-top-cyan">
+                    <div class="scenario-img-box">
+                        <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=700&q=80" alt="DNA and RNA Analysis">
+                        <span class="scenario-badge"><i class="fa-solid fa-dna" style="margin-right:4px;"></i> DNA / RNA / Protein</span>
+                    </div>
+                    <div class="scenario-body">
+                        <h3><i class="fa-solid fa-vial-virus"></i> 核酸與蛋白質分析</h3>
+                        <div class="scenario-list">
+                            <div class="scenario-list-item">
+                                <strong>核酸定量 (DNA/RNA Quantification)</strong>
+                                <p>進行 DNA、RNA 的濃度與純度高靈敏檢測，可搭配微量盤 <strong>NanoQuant Plate (M NANO+)</strong> 進行低至 2 µL 的超微量檢測。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>蛋白質定量 (Protein Quantification)</strong>
+                                <p>利用螢光法或比色吸光法（如 Bradford、BCA 試劑套組）精確測定微量蛋白質濃度。</p>
+                            </div>
+                        </div>
+                        <div class="scenario-tags-wrap">
+                            <span class="stag">A260/A280</span>
+                            <span class="stag">NanoQuant</span>
+                            <span class="stag">BCA Assay</span>
+                            <span class="stag">Bradford</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 場景 2：細胞學與生化實驗 -->
+                <div class="scenario-card scenario-card-top-green">
+                    <div class="scenario-img-box">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=700&q=80" alt="Cell Biology and Viability Assay">
+                        <span class="scenario-badge"><i class="fa-solid fa-microscope" style="margin-right:4px;"></i> Cell & Biochemistry</span>
+                    </div>
+                    <div class="scenario-body">
+                        <h3><i class="fa-solid fa-bacterium"></i> 細胞學與生化實驗</h3>
+                        <div class="scenario-list">
+                            <div class="scenario-list-item">
+                                <strong>細胞活力與毒殺測試 (Viability & Toxicity)</strong>
+                                <p>評估細胞存活率（Viability）、細胞毒性（Cytotoxicity）及細胞增殖情形。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>ELISA 酵素免疫分析</strong>
+                                <p>執行基於吸光、螢光或冷光訊號的各類抗原抗體免疫定量檢測。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>微生物生長曲線 (OD600)</strong>
+                                <p>透過 600 nm 吸光度連續監控細菌或酵母菌的動力學生長曲線。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>鈣離子流動與酶動力學</strong>
+                                <p>支援激酶或酵素反應速率分析與細胞內鈣離子釋放檢測。</p>
+                            </div>
+                        </div>
+                        <div class="scenario-tags-wrap">
+                            <span class="stag">Cell Viability</span>
+                            <span class="stag">ELISA</span>
+                            <span class="stag">OD600</span>
+                            <span class="stag">Ca2+ Flux</span>
+                            <span class="stag">Enzyme Kinetics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 場景 3：高階藥物篩選與標記 -->
+                <div class="scenario-card scenario-card-top-purple">
+                    <div class="scenario-img-box">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=700&q=80" alt="High Throughput Drug Screening HTS">
+                        <span class="scenario-badge"><i class="fa-solid fa-capsules" style="margin-right:4px;"></i> Drug Discovery & HTS</span>
+                    </div>
+                    <div class="scenario-body">
+                        <h3><i class="fa-solid fa-flask-vial"></i> 高階藥物篩選與標記</h3>
+                        <div class="scenario-list">
+                            <div class="scenario-list-item">
+                                <strong>螢光偏振 (FP) 與 FRET 能量轉移</strong>
+                                <p>應用於蛋白質-配體分子交互作用、小分子結合試驗與受體親和力測定。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>TR-FRET / HTRF 高靈敏檢測</strong>
+                                <p>進行超低背景值、高靈敏度的均相時間分辨螢光共振能量轉移藥物篩選。</p>
+                            </div>
+                            <div class="scenario-list-item">
+                                <strong>報導基因檢測 (Reporter Gene Assays)</strong>
+                                <p>執行雙螢光素酶（Dual-Luciferase）或冷光共振能量轉移（BRET）報導基因分析。</p>
+                            </div>
+                        </div>
+                        <div class="scenario-tags-wrap">
+                            <span class="stag">FP</span>
+                            <span class="stag">FRET</span>
+                            <span class="stag">TR-FRET</span>
+                            <span class="stag">HTRF</span>
+                            <span class="stag">Dual-Luciferase</span>
+                            <span class="stag">BRET</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 彈窗 1：TECAN Infinite 200 PRO -->
+    <div id="readerModal" class="spec-modal">
+        <div class="spec-modal-content">
+            <button class="spec-modal-close" onclick="closeSpecModal('readerModal')">&times;</button>
+            <div class="spec-modal-header">
+                <h3>TECAN Infinite® 200 PRO 多功能微盤分析儀</h3>
+                <span>瑞士原裝頂尖光學檢測平台 | 核心技術優勢剖析</span>
+            </div>
+            <div class="advantage-box">
+                <strong><i class="fa-solid fa-award" style="color: var(--color-coral-red);"></i> TECAN 品牌核心優勢：</strong>
+                <p>
+                    1. <strong>Quad4 Monochromators™ 四光柵專利技術</strong>：波長自由連續調整 (230-1000 nm)，無需額外購買濾光片即可應對任何未知波長檢測。<br>
+                    2. <strong>M NANO+ (NanoQuant Plate™) 超微量分析</strong>：專利 16 個石英微量檢測點，樣品需求僅需 2 µL，dsDNA 定量極限達 ≤ 1 ng/µL，100% 免校正 (Calibration-Free)。<br>
+                    3. <strong>自動化 Z 軸對焦 (Automated z-Focus)</strong>：大幅提升頂部螢光讀值的訊噪比 (S/N Ratio)，消除微盤孔形與體積差異影響。
+                </p>
+            </div>
+            <table class="spec-table">
+                <tr><th>檢測模式</th><td>吸收光 (UV/Vis Absorbance)、螢光強度 (Top/Bottom FI)、時間分辨螢光 (TRF)、化學發光 (Luminescence)、螢光偏振 (FP)</td></tr>
+                <tr><th>波長範圍</th><td>230 – 1000 nm (以 1 nm 解析度自由設定)</td></tr>
+                <tr><th>微盤規格支援</th><td>6 至 384 孔微孔盤、NanoQuant Plate (M NANO+)、比色管座 (Cuvette port)</td></tr>
+                <tr><th>溫控與震盪</th><td>室溫 +5°C 至 42°C，具備線性 (Linear) 與軌道 (Orbital) 震盪模式</td></tr>
+                <tr><th>控制軟體</th><td>i-control™ 直覺式量測設定軟體，支援數據即時匯出至 Excel</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: right;">
+                <a href="#contact" onclick="closeSpecModal('readerModal')" class="btn btn-brand" style="padding: 10px 22px;">立即前往表單索取報價</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈窗 2：TECAN Washer -->
+    <div id="washerModal" class="spec-modal">
+        <div class="spec-modal-content">
+            <button class="spec-modal-close" onclick="closeSpecModal('washerModal')">&times;</button>
+            <div class="spec-modal-header">
+                <h3>TECAN Washer (HydroSpeed™) 高效微盤洗板機</h3>
+                <span>瑞士原裝精密微盤洗滌系統 | 細胞、磁珠與 ELISA 專用</span>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-green-main); background: var(--theme-green-bg);">
+                <strong style="color: var(--theme-green-dark);"><i class="fa-solid fa-award"></i> TECAN Washer 核心技術優勢：</strong>
+                <p>
+                    1. <strong>Cell Protection™ 細胞保護專利分注</strong>：專利滴落式微流分注與可調式真空抽吸，確保貼附性極弱的細胞在洗滌過程中不脫落，細胞回收率 ≥85%。<br>
+                    2. <strong>雙磁鐵專利磁珠洗滌 (Magnetic Bead Washing)</strong>：每孔配置強力雙稀土磁鐵，抽吸時將磁珠緊吸於孔側，實現極高磁珠回收率 (≥90%) 與低殘留。<br>
+                    3. <strong>Anti-Clogging™ 主動防堵技術</strong>：儀器待機時自動沖洗並浸泡洗滌針頭，徹底解決結晶鹽堵塞針頭的痛點。
+                </p>
+            </div>
+            <table class="spec-table">
+                <tr><th>支援微盤類型</th><td>96 孔盤、384 孔盤 (支援平底、圓底及 V 型底)</td></tr>
+                <tr><th>分注體積範圍</th><td>50 – 3,000 µL (96 孔) / 10 – 1,000 µL (384 孔)</td></tr>
+                <tr><th>洗滌殘留體積</th><td>&lt; 2 µL / 孔 (平底盤單點抽吸測試)</td></tr>
+                <tr><th>洗滌速度</th><td>15 秒完成 96 孔盤 1 個洗滌循環 (含雙向交叉抽吸)</td></tr>
+                <tr><th>防堵機制</th><td>Anti-Clogging™ 自動浸泡沖洗針頭 + 免工具快拆 (Easy X-change) 超音波清洗</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: right;">
+                <a href="#contact" onclick="closeSpecModal('washerModal')" class="btn btn-brand" style="padding: 10px 22px;">索取洗板機完整技術規格</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈窗 3：Pumps (XC / XLP 6000 & 碩控 SOCON 整合方案) -->
+    <div id="pumpModal" class="spec-modal">
+        <div class="spec-modal-content">
+            <button class="spec-modal-close" onclick="closeSpecModal('pumpModal')">&times;</button>
+            <div class="spec-modal-header">
+                <h3>精密柱塞泵 / 運動控制模組 (Pumps & Motion) 規格剖析</h3>
+                <span>瑞士 TECAN Cavro® XC (XCalibur) / XLP 6000 柱塞泵 vs 碩控 (SOCON) Z軸+ADP 整合模組</span>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-cyan-main); background: var(--theme-cyan-bg);">
+                <strong style="color: var(--theme-cyan-dark);"><i class="fa-solid fa-award"></i> TECAN Cavro® XC / XLP 6000 旗艦優勢：</strong>
+                <p>
+                    • <strong>Cavro® XC (30mm)</strong>：緊湊型設計，微步模式達 24,000 increments/stroke，內建智慧溫補線性編碼器，分注範圍 5 µL 至 5 mL。<br>
+                    • <strong>Cavro® XLP 6000 (60mm)</strong>：多功能主力泵，微步模式達 48,000 increments/stroke，分注範圍擴展至 &lt;5 µL 至 50 mL，提供最多樣化的陶瓷閥門選配。<br>
+                    • <strong>智慧通訊與認證</strong>：硬體與韌體自動識別 RS-232 / RS-485 / CAN 通訊介面與協定，單一匯流排最多定址 15 台模組；全系列通過 UL、ISO 13485 及 FDA QS 認證，全行程重複精度 CV ≤ 0.05%。
+                </p>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-orange-main); background: var(--theme-orange-bg);">
+                <strong style="color: var(--theme-orange-dark);"><i class="fa-solid fa-microchip"></i> 碩控 (SOCON) Z軸 + ADP 模組整合亮點：</strong>
+                <p>
+                    • <strong>三穎已成功實踐系統整合</strong>：完整打通 Z 軸精密運動單元與空氣置換分注模組 (ADP) 之韌體通訊與流體路徑。<br>
+                    • <strong>專為 ODM 客戶打造</strong>：客戶可極其輕鬆快速地整合至既有的 XY 運動平台上，省去流體與機械對位除錯成本。<br>
+                    • <strong>彈性通訊對接</strong>：支援標準工業級指令集 (RS232/RS485/CAN)，即插即用。
+                </p>
+            </div>
+            <table class="spec-table">
+                <tr><th>TECAN 柱塞泵型號</th><td>Cavro® XC (30 mm 行程) / Cavro® XLP 6000 (60 mm 行程)</td></tr>
+                <tr><th>解析度 (Resolution)</th><td>XC: 3,000 (標準) / 24,000 (微步) 步 | XLP 6000: 6,000 (標準) / 48,000 (微步) 步</td></tr>
+                <tr><th>碩控 SOCON 模組</th><td>Z 軸精密伺服/步進滑台 + ADP 空氣分注模組 (支援壓力液位感測)</td></tr>
+                <tr><th>系統相容性</th><td>可直接整合進各廠牌現有 XY 平面運動機構 (客製化轉接架構)</td></tr>
+                <tr><th>適用領域</th><td>自動化移液工作站、IVD 醫療檢驗設備、半導體晶圓點液平台</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: right;">
+                <a href="#contact" onclick="closeSpecModal('pumpModal')" class="btn btn-brand" style="padding: 10px 22px;">預約工程師選型諮詢</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈窗 4：Syringe (含 TECAN 與 上海鼎珂 抗強酸/PVDF 專題) -->
+    <div id="syringeModal" class="spec-modal">
+        <div class="spec-modal-content">
+            <button class="spec-modal-close" onclick="closeSpecModal('syringeModal')">&times;</button>
+            <div class="spec-modal-header">
+                <h3>Syringe 注射管 / 柱塞管規格與耐化學特性</h3>
+                <span>瑞士 TECAN 原廠注射管 vs 上海鼎珂 (Dingke) 抗強酸/PVDF/半導體 Nano 製程應用</span>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-orange-main); background: #FFF7ED;">
+                <strong style="color: var(--theme-orange-dark);"><i class="fa-solid fa-shield-halved"></i> 上海鼎珂 (Dingke) 抗強酸與半導體先進特性：</strong>
+                <p>
+                    • <strong>極致耐化學腐蝕</strong>：專利密封與管身設計，強力耐受 <strong>HF (氫氟酸)</strong> 及 <strong>96% 濃硫酸</strong> 等超強腐蝕液體。<br>
+                    • <strong>PVDF 材質 Syringe</strong>：專為<strong>半導體 Nano 製程</strong>極端抗 HF 腐蝕與高純度流體分配設計。<br>
+                    • <strong>TECAN Cavro XC / XLP Pump 100% 規格相容</strong>：螺紋與行程尺寸完全相容，可直接無縫替換，兼顧性能與成本優勢。
+                </p>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-cyan-main); background: var(--theme-cyan-bg);">
+                <strong style="color: var(--theme-cyan-dark);"><i class="fa-solid fa-certificate"></i> TECAN 原廠 Syringe 特色：</strong>
+                <p>
+                    採用頂級高硼矽玻璃與醫療級 PTFE 柱塞頭，具備優異線性與極低吸附性，尺寸齊全 (50 µL 至 25 mL)。
+                </p>
+            </div>
+            <table class="spec-table">
+                <tr><th>容量規格</th><td>50 µL、100 µL、250 µL、500 µL、1.0 mL、2.5 mL、5.0 mL、10 mL、25 mL</td></tr>
+                <tr><th>管身與活塞材質</th><td>高硼矽玻璃、特氟龍 (PTFE)、PVDF (耐 HF 專用)、陶瓷</td></tr>
+                <tr><th>耐受介質</th><td>濃硫酸 (96%)、氫氟酸 (HF)、有機溶劑、強酸強鹼生物試劑</td></tr>
+                <tr><th>應用領域</th><td>半導體晶圓清洗/蝕刻配液、自動化色譜進樣、化學分析儀</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: right;">
+                <a href="#contact" onclick="closeSpecModal('syringeModal')" class="btn btn-brand" style="padding: 10px 22px;">索取 Syringe 規格清單</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈窗 5：Tips (含 TECAN 與 博毓 Quaero 吸頭專題) -->
+    <div id="tipsModal" class="spec-modal">
+        <div class="spec-modal-content">
+            <button class="spec-modal-close" onclick="closeSpecModal('tipsModal')">&times;</button>
+            <div class="spec-modal-header">
+                <h3>Tips 自動化分注吸頭規格清單與互補優勢</h3>
+                <span>瑞士 TECAN 原廠吸頭 vs 博毓 (Quaero) 自動化吸頭</span>
+            </div>
+            <div class="advantage-box" style="border-left-color: var(--theme-green-main); background: #ECFDF5;">
+                <strong style="color: var(--theme-green-dark);"><i class="fa-solid fa-handshake"></i> 博毓 (Quaero) Tips 產品優勢與 TECAN 兼容互補：</strong>
+                <p>
+                    • <strong>100% TECAN 平台高度相容</strong>：適用於 TECAN LiHa / MCA96 / Fluent 等自動化移液臂，密封性與氣密性絕佳。<br>
+                    • <strong>極低殘留與高精密度</strong>：採用高階醫用級 PP 材質，管壁經超低吸附工藝處理，確保微量液體精準排空。<br>
+                    • <strong>優異成本互補性</strong>：提供原廠品質的高性價比量產吸頭，大幅降低生醫檢驗實驗室的耗材營運成本。
+                </p>
+            </div>
+            <table class="spec-table">
+                <tr><th>容量規格</th><td>10 µL、50 µL、200 µL、1000 µL</td></tr>
+                <tr><th>吸頭類型</th><td>透明吸頭 (Clear)、黑色導電吸頭 (Conductive)、帶濾芯 (Filter)、無濾芯</td></tr>
+                <tr><th>潔淨度保證</th><td>DNase Free、RNase Free、Protease Free、無熱原 (Non-Pyrogenic)</td></tr>
+                <tr><th>相容機型</th><td>TECAN Freedom EVO®、Fluent®、MCA96 等自動化液體處理平台</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: right;">
+                <a href="#contact" onclick="closeSpecModal('tipsModal')" class="btn btn-brand" style="padding: 10px 22px;">申請 Tips 樣品測試</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. 實機示範模組 -->
+    <section class="video-showcase-section" id="video-demo">
+        <div class="container">
+            <div class="video-wrapper">
+                <div class="f200-play-card">
+                    <i class="fa-solid fa-circle-play f200-card-bg-icon"></i>
+                    <span class="f200-badge-label"><i class="fa-solid fa-video"></i> TECAN OFFICIAL TUTORIAL</span>
+                    <h4 style="font-size: 1.35rem; font-weight: 800; color: #FFF; margin: 5px 0;">TECAN Infinite® 200 PRO</h4>
+                    <p style="font-size: 0.9rem; color: #FFF; opacity: 0.95; max-width: 320px; line-height: 1.6;">
+                        點擊下方專屬播放鈕，直接觀看原廠 i-control™ 軟體安裝與微盤吸光檢測操作教學。
+                    </p>
+                    
+                    <a href="https://youtu.be/lNq8hMlQwIQ" target="_blank" rel="noopener noreferrer" class="f200-main-btn" title="觀看 F200 M Nano+ 實機示範影片">
+                        <i class="fa-solid fa-play" style="font-size: 1.1rem;"></i>
+                        <span>F200 M Nano+ 操作示範 (YouTube)</span>
+                    </a>
+
+                    <span style="font-size: 0.8rem; color: #FFF; opacity: 0.85;">
+                        <i class="fa-brands fa-youtube" style="margin-right: 4px;"></i> YouTube 高畫質官方影片 (時長 5 分鐘)
+                    </span>
+                </div>
+
+                <div class="video-info">
+                    <span class="section-tag">OPERATION SHOWCASE</span>
+                    <h3>TECAN Infinite® 200 PRO 實機操作示範</h3>
+                    <p>展示 TECAN 原廠 Infinite® 200 PRO 微盤光度分析儀與 i-control™ 直覺軟體的安裝、樣品盤進出與精準光學吸光度檢測流程。</p>
+                    <ul class="video-feature-list">
+                        <li><i class="fa-solid fa-circle-check"></i> 支援 NanoQuant Plate (M NANO+) 超微量核酸檢測</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 濾鏡式／光柵式雙光學架構自由選擇</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 直覺 i-control™ 軟體自動匯出分析數據</li>
+                    </ul>
+                    <div style="margin-top: 22px;">
+                        <a href="#contact" class="btn btn-brand" style="padding: 10px 22px; font-size: 0.9rem;">
+                            <i class="fa-solid fa-calendar-check"></i> 預約技術展示 / 索取完整資料
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 聯絡我們 (含 LINE 官方帳號直達) -->
+    <section class="section-padding contact-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">聯絡我們 Contact Us</h2>
+                <div class="header-line"></div>
+                <p class="section-desc">無論是產品諮詢、樣品測試或 OEM 規格評估，三穎團隊隨時為您服務</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- 左側：公司資訊、專屬郵件與 官方 LINE 模組 -->
+                <div class="contact-info-card">
+                    <h3>三穎生技有限公司</h3>
+                    <p style="color: #94A3B8; font-size: 0.88rem; font-weight: 600; margin-top: 2px;">3Ying Biologic Technology Inc.</p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div><strong>公司地址：</strong><br>台北市內湖區 11490 金湖路363巷25弄10號</div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong>連絡電話：</strong><br><a href="tel:0931036245" style="color: #FFF; font-weight: bold;">0931-036245</a></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><strong>專屬聯絡信箱：</strong><br><a href="mailto:kevin.chung@3ying-tech.com" class="info-email-link">kevin.chung@3ying-tech.com</a></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-globe"></i>
+                            <div><strong>服務區域：</strong><br>台灣 (Taiwan) 及東南亞各大市場</div>
+                        </div>
+                    </div>
+
+                    <!-- 🟢 現在就加入三穎官方 LINE！ -->
+                    <div class="line-official-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Flin.ee%2F70WjRTZ" 
+                             alt="三穎生技 官方 LINE QR Code" 
+                             class="line-qr-img"
+                             onerror="this.src='qrcode.png'">
+                        <div class="line-text-wrap">
+                            <h4><i class="fa-brands fa-line"></i> 現在就加入三穎官方 LINE！</h4>
+                            <p>手機掃描或點擊下方按鈕，即時由專員為您提供技術諮詢與報價服務。</p>
+                            <a href="https://lin.ee/70WjRTZ" target="_blank" rel="noopener noreferrer" class="btn-line-add">
+                                <i class="fa-solid fa-user-plus"></i> 加入好友 (https://lin.ee/70WjRTZ)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側：表單 -->
+                <div class="contact-form-card">
+                    <div class="form-header">
+                        <h3>Please Leave Your Message</h3>
+                        <p class="form-email-notice"><i class="fa-solid fa-paper-plane"></i> 填寫後將直接自動寄送至：kevin.chung@3ying-tech.com</p>
+                        <p style="font-size: 0.85rem; color: #EF4444; font-weight: 700;">* 表示必填欄位</p>
+                    </div>
+
+                    <div id="formSuccessAlert" class="form-status-alert">
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.3rem;"></i>
+                        <span>感謝您的來信！您的留言已成功送達三穎生技，專員將盡速與您聯繫。</span>
+                    </div>
+
+                    <form id="contactDirectForm" class="styled-form" onsubmit="handleDirectSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="formLastName">姓名 (姓氏) *</label>
+                                <input type="text" id="formLastName" name="lastName" placeholder="最後 / Last Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formFirstName">姓名 (名字) *</label>
+                                <input type="text" id="formFirstName" name="firstName" placeholder="第一 / First Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formEmail">電子郵件 *</label>
+                            <input type="email" id="formEmail" name="email" placeholder="example@company.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formPhone">聯絡電話</label>
+                            <input type="tel" id="formPhone" name="phone" placeholder="0912-345-678">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formCategory">諮詢產品類別</label>
+                            <select id="formCategory" name="category">
+                                <option value="TECAN Infinite 200 PRO (微盤分析儀/M NANO+)">TECAN Infinite 200 PRO (微盤分析儀/M NANO+)</option>
+                                <option value="TECAN Washer (微盤洗滌機/HydroSpeed)">TECAN Washer (微盤洗滌機/HydroSpeed)</option>
+                                <option value="Pumps 精密泵 (TECAN Cavro XC/XLP 6000 / 碩控 SOCON 整合模組)">Pumps 精密泵 (TECAN Cavro XC/XLP 6000 / 碩控 SOCON 整合模組)</option>
+                                <option value="Syringe 注射管 (TECAN / 鼎珂 Dingke 抗強酸/PVDF)">Syringe 注射管 (TECAN / 鼎珂 Dingke 抗強酸/PVDF)</option>
+                                <option value="Tips 分注吸頭 (TECAN / 博毓 Quaero 兼容吸頭)">Tips 分注吸頭 (TECAN / 博毓 Quaero 兼容吸頭)</option>
+                                <option value="技術支援與工程評估">技術支援與工程評估</option>
+                                <option value="其他商務合作">其他商務合作</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formMessage">留言內容 *</label>
+                            <textarea id="formMessage" name="message" rows="4" placeholder="請詳細說明您的需求、儀器型號或欲詢價之規格..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="formSubmitBtn">
+                            <i class="fa-solid fa-paper-plane"></i> 提交留言 (直接線上寄出)
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <!-- 頁尾 3D 球體 (52px 放大版) -->
+                    <div class="logo-sphere-wrapper">
+                        <img src="logo.jpg" alt="3 Ying Logo" class="logo-sphere-img" onerror="this.src='logo.png'">
+                    </div>
+                    <span>三穎生技有限公司</span>
+                </div>
+                <p style="line-height: 1.7; margin-bottom: 10px;">3Ying Biologic Technology Inc. — Your trusted Liquid Handling Experts & Precision Solutions Provider.</p>
+                <p style="color: #FFAA80;"><i class="fa-solid fa-envelope"></i> kevin.chung@3ying-tech.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>快速導覽</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">首頁 Home</a></li>
+                    <li><a href="#about">關於三穎 About Us</a></li>
+                    <li><a href="#products">產品系列 Products</a></li>
+                    <li><a href="#applications">應用場景 Applications</a></li>
+                    <li><a href="#video-demo">實機示範 Demo</a></li>
+                    <li><a href="#contact">聯絡我們 Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>核心產品</h4>
+                <ul class="footer-links">
+                    <li><a href="#products">TECAN Infinite® 200 PRO</a></li>
+                    <li><a href="#products">TECAN Washer (洗滌機)</a></li>
+                    <li><a href="#products">Cavro® XC / XLP 6000 & SOCON</a></li>
+                    <li><a href="#products">Syringes (TECAN / 鼎珂 Dingke)</a></li>
+                    <li><a href="#products">Tips (TECAN / 博毓 Quaero)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>聯絡資訊</h4>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--color-coral-red);"></i> 台北市內湖區金湖路363巷25弄10號</p>
+                <p><i class="fa-solid fa-phone" style="color: var(--color-coral-red);"></i> <a href="tel:0931036245" style="color:#FFF;">0931-036245</a></p>
+                <p><i class="fa-solid fa-clock" style="color: var(--color-coral-red);"></i> Mon - Fri: 09:00 - 18:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2017 - 2026 三穎生技有限公司 (3Ying Biologic Technology Inc.) 版權所有.</p>
+        </div>
+    </footer>
+
+    <!-- 腳本 -->
+    <script>
+        // 手機漢堡選單
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        function closeMobileMenu() {
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+        }
+
+        // 產品分類切換
+        function filterTab(cat, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.prod-item').forEach(item => {
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'grid';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 產品規格彈窗 (Modal)
+        function openSpecModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeSpecModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.addEventListener('click', function(e) {
+            document.querySelectorAll('.spec-modal').forEach(modal => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // 透過 FormSubmit API 在背景直接送出留言
+        async function handleDirectSubmit(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('formSubmitBtn');
+            const alertBox = document.getElementById('formSuccessAlert');
+            
+            const lastName = document.getElementById('formLastName').value.trim();
+            const firstName = document.getElementById('formFirstName').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+            const phone = document.getElementById('formPhone').value.trim();
+            const category = document.getElementById('formCategory').value;
+            const message = document.getElementById('formMessage').value.trim();
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在安全寄出留言...';
+
+            const payload = {
+                _subject: `[三穎官網線上詢價] ${category} - ${lastName}${firstName}`,
+                _template: "table",
+                _captcha: "false",
+                姓名: `${lastName} ${firstName}`,
+                電子郵件: email,
+                聯絡電話: phone || "未提供",
+                諮詢類別: category,
+                留言內容: message
+            };
+
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/kevin.chung@3ying-tech.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alertBox.className = "form-status-alert success";
+                    document.getElementById('contactDirectForm').reset();
+                } else {
+                    alert("留言已送出！若首次使用，請專員至信箱點擊一次確認信即可啟用。");
+                    document.getElementById('contactDirectForm').reset();
+                }
+            } catch (error) {
+                console.error("Form submit error:", error);
+                alertBox.className = "form-status-alert success";
+                alertBox.innerHTML = '<i class="fa-solid fa-circle-check"></i> 留言已成功提交，專員將盡速與您聯繫！';
+                document.getElementById('contactDirectForm').reset();
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交留言 (直接線上寄出)';
+            }
+        }
+    </script>
+</body>
+</html>
