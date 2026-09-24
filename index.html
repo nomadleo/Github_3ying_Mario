@@ -906,16 +906,33 @@
         .tech-spec-bullets {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px 16px;
+            gap: 12px 20px;
             margin-bottom: 18px;
         }
         .tech-spec-bullets li {
             font-size: 0.86rem;
             color: var(--color-text-main);
-            font-weight: 600;
             display: flex;
-            align-items: center;
-            gap: 6px;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+        }
+        .tech-spec-bullets li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .tech-spec-bullets li .spec-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .tech-spec-bullets li strong {
+            color: var(--color-text-title);
+            font-weight: 700;
+        }
+        .tech-spec-bullets li span.spec-desc {
+            color: var(--color-text-muted);
+            font-size: 0.83rem;
         }
 
         .prod-actions {
@@ -1675,7 +1692,7 @@
 
             <div class="products-full-list">
                 
-                <!-- ⭐ 旗艦：TECAN Spark® Multimode Reader（白底專業科研檢測照） -->
+                <!-- ⭐ 旗艦：TECAN Spark® Multimode Reader -->
                 <div class="product-full-card prod-theme-rose prod-item" data-cat="spark">
                     <div class="prod-full-img-wrap">
                         <img src="spark.png" alt="TECAN Spark Multimode Microplate Reader" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80';">
@@ -1689,10 +1706,34 @@
                         </p>
                         
                         <ul class="tech-spec-bullets">
-                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i> <strong>Fusion Optics 自由選光：</strong>四光柵 (Quadx4) 與濾鏡模組任意串聯</li>
-                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i> <strong>高靈敏 AlphaScreen® / AlphaLISA®：</strong>搭配高能量雷射光源</li>
-                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i> <strong>自動化活細胞成像：</strong>免標記直接計算細胞數與 Confluence</li>
-                            <li><i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i> <strong>環境控制與防蒸發：</strong>O2/CO2 氣體動態控制 + 自動開蓋器</li>
+                            <li>
+                                <i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i>
+                                <div class="spec-text">
+                                    <strong>Fusion Optics 自由選光</strong>
+                                    <span class="spec-desc">四光柵 (Quadx4) 與濾鏡模組任意串聯</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i>
+                                <div class="spec-text">
+                                    <strong>高靈敏 Alpha 檢測平台</strong>
+                                    <span class="spec-desc">AlphaScreen® / AlphaLISA® 專用高能雷射</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i>
+                                <div class="spec-text">
+                                    <strong>自動化活細胞成像</strong>
+                                    <span class="spec-desc">免標記直接計算細胞數與 Confluence</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check" style="color:var(--theme-rose-main);"></i>
+                                <div class="spec-text">
+                                    <strong>微環境控制與防蒸發</strong>
+                                    <span class="spec-desc">O2 / CO2 動態控制與專利自動開蓋器</span>
+                                </div>
+                            </li>
                         </ul>
 
                         <div class="prod-actions">
@@ -1702,7 +1743,7 @@
                     </div>
                 </div>
 
-                <!-- 1. TECAN Infinite 200 PRO（獨立生醫微盤檢測照） -->
+                <!-- 1. TECAN Infinite 200 PRO -->
                 <div class="product-full-card prod-theme-purple prod-item" data-cat="reader">
                     <div class="prod-full-img-wrap">
                         <img src="infinite200.png" alt="TECAN Infinite 200 PRO" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80';">
@@ -1725,7 +1766,7 @@
                     </div>
                 </div>
 
-                <!-- 2. TECAN Washer（專業生化微盤流體洗板機台照） -->
+                <!-- 2. TECAN Washer -->
                 <div class="product-full-card prod-theme-teal prod-item" data-cat="washer">
                     <div class="prod-full-img-wrap">
                         <img src="hydrospeed.png" alt="TECAN HydroSpeed Microplate Washer" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80';">
