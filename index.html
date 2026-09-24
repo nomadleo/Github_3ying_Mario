@@ -871,7 +871,7 @@
             transition: transform 0.4s ease;
         }
         .product-full-card:hover .prod-full-img-wrap img { transform: scale(1.04); }
-        
+
         .prod-tag-badge {
             position: absolute;
             top: 12px;
@@ -1273,7 +1273,7 @@
             transition: var(--transition-smooth); 
             appearance: none;
         }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-coral-red); box-shadow: 0 0 0 3px rgba(234, 58, 0, 0.12); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-coral-red); box-shadow: 0 0 0 3px rgba(234, 0, 0, 0.12); }
         .btn-submit { width: 100%; padding: 13px; background: var(--gradient-primary); color: #fff; border: none; border-radius: var(--radius-sm); font-weight: 800; cursor: pointer; font-size: 1rem; box-shadow: var(--shadow-glow-orange); transition: var(--transition-smooth); min-height: 46px; }
 
         .form-status-alert {
@@ -1692,10 +1692,15 @@
 
             <div class="products-full-list">
                 
-                <!-- ⭐ 旗艦：TECAN Spark® Multimode Reader -->
+                <!-- ⭐ 旗艦：TECAN Spark® Multimode Reader（直接帶原廠影片縮圖，點擊立即在新分頁看影片） -->
                 <div class="product-full-card prod-theme-rose prod-item" data-cat="spark">
-                    <div class="prod-full-img-wrap">
-                        <img src="spark.png" alt="TECAN Spark Multimode Microplate Reader" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80';">
+                    <div class="prod-full-img-wrap" style="position: relative;">
+                        <!-- 點擊圖片立即在新視窗播放 Tecan Spark 影片 -->
+                        <a href="https://www.tecan.com/spark-overview?wvideo=zx8icr98fl" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; cursor:pointer;" title="點擊觀看 Spark 原廠影片">
+                            <img src="https://embed-ssl.wistia.com/deliveries/da0e8cbed1f7ac010eab5d7df2052d26034f4df4.jpg?image_play_button_size=2x&image_crop_resized=960x540&image_play_button_rounded=1&image_play_button_color=00acffe0" 
+                                 alt="Play Video - Spark - Tomorrow's imaging multimode plate reader with Smart Automation" 
+                                 style="width: 100%; height: auto; max-height: 240px; object-fit: contain;">
+                        </a>
                         <span class="prod-tag-badge"><i class="fa-solid fa-bolt" style="margin-right:4px;"></i> 旗艦活細胞平台</span>
                     </div>
                     <div class="prod-full-body">
@@ -1737,6 +1742,9 @@
                         </ul>
 
                         <div class="prod-actions">
+                            <a href="https://www.tecan.com/spark-overview?wvideo=zx8icr98fl" target="_blank" rel="noopener noreferrer" class="btn-modal-open" style="background:#FFF1F2; color:#E11D48; border-color:#FDA4AF; display:inline-flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-circle-play"></i> 觀看 Spark 示範影片
+                            </a>
                             <button class="btn-modal-open" onclick="openSpecModal('sparkModal')"><i class="fa-solid fa-circle-info"></i> 查看完整技術規格</button>
                             <a href="#contact" class="prod-btn"><i class="fa-regular fa-envelope"></i> 諮詢報價</a>
                         </div>
