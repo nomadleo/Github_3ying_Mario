@@ -862,7 +862,7 @@
             padding: 16px;
             border-right: 1px solid #F1F5F9;
         }
-        .prod-full-img-wrap img { 
+        .prod-full-img-wrap img, .prod-full-img-wrap video { 
             width: 100%; 
             height: 100%; 
             max-height: 240px;
@@ -1473,7 +1473,6 @@
         </div>
     </header>
 
-    <!-- 1. 首頁橫幅 -->
     <section class="hero-section" id="home">
         <div class="hero-glow-orange"></div>
         <div class="hero-glow-cyan"></div>
@@ -1519,7 +1518,6 @@
         </div>
     </section>
 
-    <!-- 2. 關於三穎 -->
     <section class="section-padding about-section" id="about">
         <div class="container">
             <div class="text-center">
@@ -1670,7 +1668,6 @@
         </div>
     </section>
 
-    <!-- 3. 產品專區 -->
     <section class="section-padding products-section" id="products">
         <div class="container">
             <div class="text-center">
@@ -1692,10 +1689,8 @@
 
             <div class="products-full-list">
                 
-                <!-- ⭐ 旗艦：TECAN Spark® Multimode Reader（直接帶原廠影片縮圖，點擊立即在新分頁看影片） -->
                 <div class="product-full-card prod-theme-rose prod-item" data-cat="spark">
                     <div class="prod-full-img-wrap" style="position: relative;">
-                        <!-- 點擊圖片立即在新視窗播放 Tecan Spark 影片 -->
                         <a href="https://www.tecan.com/spark-overview?wvideo=zx8icr98fl" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; cursor:pointer;" title="點擊觀看 Spark 原廠影片">
                             <img src="https://embed-ssl.wistia.com/deliveries/da0e8cbed1f7ac010eab5d7df2052d26034f4df4.jpg?image_play_button_size=2x&image_crop_resized=960x540&image_play_button_rounded=1&image_play_button_color=00acffe0" 
                                  alt="Play Video - Spark - Tomorrow's imaging multimode plate reader with Smart Automation" 
@@ -1751,7 +1746,6 @@
                     </div>
                 </div>
 
-                <!-- 1. TECAN Infinite 200 PRO -->
                 <div class="product-full-card prod-theme-purple prod-item" data-cat="reader">
                     <div class="prod-full-img-wrap">
                         <img src="infinite200.png" alt="TECAN Infinite 200 PRO" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80';">
@@ -1774,7 +1768,6 @@
                     </div>
                 </div>
 
-                <!-- 2. TECAN Washer -->
                 <div class="product-full-card prod-theme-teal prod-item" data-cat="washer">
                     <div class="prod-full-img-wrap">
                         <img src="hydrospeed.png" alt="TECAN HydroSpeed Microplate Washer" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80';">
@@ -1797,10 +1790,17 @@
                     </div>
                 </div>
 
-                <!-- 3. Pumps -->
                 <div class="product-full-card prod-theme-blue prod-item" data-cat="pb">
                     <div class="prod-full-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="TECAN Cavro and SOCON">
+                        <video 
+                            src="Z%20axis%20clip.mp4" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline 
+                            style="width: 100%; height: 100%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm);">
+                            您的瀏覽器不支援 HTML5 影片播放。
+                        </video>
                         <span class="prod-tag-badge"><i class="fa-solid fa-gears" style="margin-right:4px;"></i> Pumps & Motion</span>
                     </div>
                     <div class="prod-full-body">
@@ -1826,7 +1826,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Syringe -->
                 <div class="product-full-card prod-theme-orange prod-item" data-cat="syringe">
                     <div class="prod-full-img-wrap">
                         <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="Syringes">
@@ -1853,7 +1852,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Tips -->
                 <div class="product-full-card prod-theme-teal prod-item" data-cat="tips">
                     <div class="prod-full-img-wrap">
                         <img src="tip.png" alt="Tips">
@@ -1883,7 +1881,6 @@
         </div>
     </section>
 
-    <!-- 4. 應用場景 -->
     <section class="section-padding app-scenarios-section" id="applications">
         <div class="container">
             <div class="text-center">
@@ -1964,7 +1961,6 @@
         </div>
     </section>
 
-    <!-- Modals -->
     <div id="sparkModal" class="spec-modal">
         <div class="spec-modal-content">
             <button class="spec-modal-close" onclick="closeSpecModal('sparkModal')">&times;</button>
@@ -2082,7 +2078,6 @@
         </div>
     </div>
 
-    <!-- 5. 實機示範模組 -->
     <section class="video-showcase-section" id="video-demo">
         <div class="container">
             <div class="video-wrapper">
@@ -2116,7 +2111,6 @@
         </div>
     </section>
 
-    <!-- 6. 聯絡我們 -->
     <section class="section-padding contact-section" id="contact">
         <div class="container">
             <div class="text-center">
@@ -2228,7 +2222,6 @@
         </div>
     </section>
 
-    <!-- 頁尾 -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
@@ -2274,7 +2267,6 @@
         </div>
     </footer>
 
-    <!-- 腳本 -->
     <script>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
